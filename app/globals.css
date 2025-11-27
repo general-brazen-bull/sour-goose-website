@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sour-red: #ff0000;
+    --lightning-yellow: #ffff00;
+    --goose-black: #000000;
+    --pure-white: #ffffff;
+  }
+}
+
+@layer components {
+  /* === Color Utilities === */
+  .text-sour-red {
+    color: var(--sour-red);
+  }
+
+  .bg-sour-red {
+    background-color: var(--sour-red);
+  }
+
+  .text-lightning-yellow {
+    color: var(--lightning-yellow);
+  }
+
+  .bg-lightning-yellow {
+    background-color: var(--lightning-yellow);
+  }
+
+  .font-bebas {
+    font-family: var(--font-bebas);
+  }
+
+  /* === Text Glow === */
+  .lightning-text {
+    text-shadow: 0 0 10px var(--lightning-yellow);
+  }
+
+  .hover-lightning {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lightning:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px var(--lightning-yellow);
+  }
+
+  /* === Fade In Animation === */
+  .animate-fade-in {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out forwards;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes logo-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 10px var(--lightning-yellow));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px var(--lightning-yellow));
+    }
+  }
+}
+
+/* === Lightning Gradient Background === */
+.lightning-bg {
+  background: linear-gradient(45deg, #000000 0%, #ff0000 60%);
+  background-size: 400% 400%;
+  animation: lightning-pulse 4s ease-in-out infinite;
+}
+
+@keyframes lightning-pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* === Age Gate Background === */
+.age-gate-bg {
+  background: radial-gradient(circle at center, #ff0000 0%, #000000 70%);
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+  /* === Logo Glow Animation === */
+@layer components {
+  .glow-logo {
+    transition: all 0.3s ease;
+  }
+  
+  .glow-logo:hover {
+    filter: drop-shadow(0 0 6px var(--lightning-yellow)) drop-shadow(0 0 12px var(--lightning-yellow));
+    transform: scale(1.03);
+  }
+}
