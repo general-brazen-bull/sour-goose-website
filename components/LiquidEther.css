@@ -1,0 +1,17 @@
+.liquid-ether-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* Force ether canvas BEHIND content */
+.liquid-ether-canvas,
+canvas.liquid-ether,
+.liquid-ether-wrapper canvas {
+  z-index: -1 !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+}

@@ -1,0 +1,15 @@
+.scroll-reveal {
+  margin: 20px auto;
+  max-width: 45srem; /* ⭐ wider than before */
+  width: 95%;       /* ⭐ allows breathing room on mobile */
+}
+
+.scroll-reveal-text {
+  font-size: clamp(1.2rem, 2.6vw, 2.2rem); /* ⭐ smaller + scales better */
+  line-height: 1.4; /* slightly tighter */
+  font-weight: 400;
+}
+
+.word {
+  display: inline-block;
+}

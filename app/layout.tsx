@@ -4,31 +4,58 @@ import { Inter, Bebas_Neue } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
+// Load fonts with CSS variables
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const bebasNeue = Bebas_Neue({
+const bebas = Bebas_Neue({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-bebas",
 })
 
+// ----------- SITE-WIDE SEO -----------
 export const metadata: Metadata = {
-  title: "Sour Goose - Bold Raspberry Liqueur",
+  title: "Sour Goose — Bold, Vibrant Liqueurs",
   description:
-    "IT'S TART, IT'S JUICY, IT'S HERE. A bold raspberry liqueur with a sharp twist. Proudly crafted in British Columbia.",
-  keywords: "raspberry liqueur, sour goose, british columbia, cocktails, spirits",
-  generator: "v0.dev",
+    "Sour Goose is a bold, vibrant line of flavour-packed liqueurs crafted in British Columbia. Try our Raspberry, Salsa Verde, and upcoming limited-edition flavours.",
+  keywords: [
+    "Sour Goose",
+    "raspberry liqueur",
+    "salsa verde liqueur",
+    "liqueur",
+    "bold liqueurs",
+    "craft spirits",
+    "British Columbia spirits",
+    "BC craft distillery",
+    "Flash Bang Spirits",
+  ],
+  openGraph: {
+    title: "Sour Goose — Bold, Vibrant Liqueurs",
+    description:
+      "A flavour-first liqueur brand crafted in British Columbia. Raspberry, Salsa Verde, and more to come.",
+    url: "https://drinksourgoose.com",
+    siteName: "Sour Goose",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sour Goose — Bold, Vibrant Liqueurs",
+    description:
+      "A bright, bold liqueur line crafted in British Columbia. Raspberry, Salsa Verde, and more.",
+  },
 }
 
+// ----------- ROOT LAYOUT -----------
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
-      <body className="font-inter bg-black text-white overflow-x-hidden">
+    <html lang="en" className={`${inter.variable} ${bebas.variable}`}>
+      {/* No global font override — lets Bebas work where applied */}
+      <body className="bg-black text-white overflow-x-hidden">
         {children}
-        <Analytics /> {/* This enables Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   )

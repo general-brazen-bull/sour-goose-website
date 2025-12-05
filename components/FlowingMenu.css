@@ -1,0 +1,141 @@
+/* ============================================================
+   BASE LAYOUT
+============================================================ */
+
+.menu-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 4rem 0 2rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   MENU ROWS
+============================================================ */
+
+.menu__item {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-bottom: 2.5px solid rgba(255, 0, 0, 0.35);
+  height: 10rem;
+  flex: none !important;
+}
+
+/* ============================================================
+   MENU ITEM LINK
+============================================================ */
+
+.menu__item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  white-space: nowrap;
+  text-transform: uppercase;
+
+  font-family: var(--font-bebas), sans-serif !important;
+  font-size: clamp(26px, 5vw, 60px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #fff;
+
+  transition: color 0.25s ease;
+}
+
+.menu__item-link:hover {
+  color: #060010;
+}
+
+/* ============================================================
+   MARQUEE BACKGROUND
+============================================================ */
+
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  background: #FFFF00;
+
+  transform: translate3d(0, 101%, 0);
+  transition: transform 0.6s ease-expo;
+}
+
+.menu__item-link:hover + .marquee {
+  transform: translate3d(0, 0%, 0);
+}
+
+.marquee__inner-wrap {
+  height: 100%;
+  width: 200%;
+  display: flex;
+}
+
+/* ============================================================
+   MARQUEE ANIMATION (LEFT = DEFAULT)
+============================================================ */
+
+.marquee__inner {
+  height: 100%;
+  width: 200%;
+  display: flex;
+  flex-direction: row;        /* ⭐ FORCE SINGLE HORIZONTAL LINE */
+  white-space: nowrap;        /* ⭐ PREVENT LINE BREAKS */
+  align-items: center;
+
+  animation: marquee-left 30s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   RIGHT DIRECTION (REVERSED)
+============================================================ */
+
+.marquee__inner--right {
+  display: flex;              /* ⭐ REQUIRED */
+  flex-direction: row;        /* ⭐ REQUIRED */
+  white-space: nowrap;        /* ⭐ REQUIRED */
+
+  animation: marquee-right 30s linear infinite;
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ============================================================
+   MARQUEE TEXT
+============================================================ */
+
+.marquee span {
+  color: #000;
+  text-transform: uppercase;
+
+  font-family: var(--font-bebas), sans-serif !important;
+  font-size: clamp(26px, 5vw, 60px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+
+  padding: 1vh 1vw 0;
+}

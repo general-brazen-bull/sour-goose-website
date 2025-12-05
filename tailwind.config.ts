@@ -1,49 +1,65 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
+
+  safelist: [
+    "animate-blink",
+    "animate-typing",
+  ],
+
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
     extend: {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
+
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
+
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
@@ -51,6 +67,7 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -61,16 +78,24 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+
         "sour-red": "#FF0000",
         "lightning-yellow": "#FFFF00",
         "goose-black": "#000000",
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
+      /* ----------------------------- */
+      /*         ANIMATIONS           */
+      /* ----------------------------- */
+
       keyframes: {
+        /* Built-in animations */
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -79,34 +104,53 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+
         "lightning-pulse": {
           "0%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.2)" },
           "100%": { transform: "scale(1)" },
         },
+
         "pulse-glow": {
           "0%": { transform: "scale(1)", opacity: "0.5" },
           "100%": { transform: "scale(1.5)", opacity: "1" },
         },
+
+        /* ⭐ FINAL TYPING ANIMATION ⭐ */
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+        typing: {
+          "0%": { width: "0ch" },
+          "100%": { width: "60ch" },
+        },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+
         "lightning-pulse": "lightning-pulse 3s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite alternate",
+
+        /* ⭐ FINAL TYPING ANIMATION ⭐ */
+        blink: "blink 0.8s step-end infinite",
+        typing: "typing 2.5s steps(60) forwards",
       },
+
       fontFamily: {
         bebas: ["var(--font-bebas)"],
         inter: ["var(--font-inter)"],
         avenir: ["Avenir", "Helvetica", "Arial", "sans-serif"],
         impact: ["Impact", "Charcoal", "sans-serif"],
       },
+
       screens: {
-        "xl-custom": "1283px", // ✅ custom screen correctly defined here
+        "xl-custom": "1283px",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+};
 
-export default config
+export default config;

@@ -30,7 +30,7 @@
   }
 
   .font-bebas {
-    font-family: var(--font-bebas);
+    font-family: var(--font-bebas), sans-serif !important;
   }
 
   /* === Text Glow === */
@@ -115,4 +115,111 @@
     filter: drop-shadow(0 0 6px var(--lightning-yellow)) drop-shadow(0 0 12px var(--lightning-yellow));
     transform: scale(1.03);
   }
+}
+
+/* Lighten actual SpotlightCard surface */
+.custom-spotlight-card .spotlight-card {
+  background: rgba(255, 255, 255, 0.40) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+/* UI-only tighter letter spacing */
+.ui-tight {
+  letter-spacing: 0.08em;
+}
+
+/* === GLOBAL BUTTON TYPOGRAPHY FIX === */
+button,
+.btn,
+button[class*="font-bebas"],
+a[class*="font-bebas"][role="button"] {
+  letter-spacing: 0.08em !important;
+}
+
+/* === BEBAS (UI Variant) === */
+/* Use this for nav, footer, buttons, headings inside cards */
+.font-bebas-ui {
+  font-family: var(--font-bebas), sans-serif !important;
+  letter-spacing: 0.08em; /* matches nav/footer/buttons */
+  text-transform: uppercase;
+}
+
+/* ===========================
+   DecryptedText Slide-Up Animation
+=========================== */
+.decrypt-target {
+  transition: all 0.6s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.decrypt-target.decrypt-done {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* FLASH BANG PRESENTS starting position */
+.hero-decrypt-line {
+  position: relative;
+  top: 0;
+  transition: top 0.85s ease, opacity 0.85s ease;
+}
+
+/* After decrypt animation finishes */
+.hero-decrypt-slide-up {
+  top: -140px;   /* adjust to match your exact hero layout */
+  opacity: 1;
+}
+
+.decrypt-mid {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-up {
+  transform: translateY(-180px);
+  opacity: 1;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* REMOVE REACTBITS DEFAULT LOGO */
+.rb-staggered-menu-logo,
+.rb-menu-header-logo {
+  display: none !important;
+}
+
+/* MAKE MENU PANEL TOUCH RIGHT EDGE */
+.rb-staggered-menu-panel {
+  right: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ENSURE PANEL CAN OPEN FULLY */
+.rb-staggered-menu-container {
+  height: 100vh !important;
+  overflow: visible !important;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
