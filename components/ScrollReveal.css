@@ -1,15 +1,36 @@
+/* ============================================================
+   SCROLL REVEAL — CONTAINER
+============================================================ */
 .scroll-reveal {
   margin: 20px auto;
-  max-width: 45srem; /* ⭐ wider than before */
-  width: 95%;       /* ⭐ allows breathing room on mobile */
+  max-width: 50rem;        /* ⭐ wider container */
+  width: 92%;              /* ⭐ small padding left/right */
+  text-align: center;
 }
 
+
+/* ============================================================
+   SCROLL REVEAL — TEXT SIZE (THIS IS THE ONE YOU WANT BIGGER)
+============================================================ */
 .scroll-reveal-text {
-  font-size: clamp(1.2rem, 2.6vw, 2.2rem); /* ⭐ smaller + scales better */
-  line-height: 1.4; /* slightly tighter */
+  font-size: clamp(1.6rem, 4.3vw, 2.6rem);  
+  /* ⭐ BIGGER VERSION
+     - On small phones ≈ 1.8rem
+     - On mid screens ≈ 2.2–2.5rem
+     - On large mobile / tablet ≈ 2.8rem
+  */
+
+  line-height: 1.45;
   font-weight: 400;
+  color: white;
+  display: inline-block;
 }
 
+
+/* ============================================================
+   WORD SPLITTING
+============================================================ */
 .word {
   display: inline-block;
+  white-space: pre;
 }

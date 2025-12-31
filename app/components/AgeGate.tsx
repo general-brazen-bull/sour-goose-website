@@ -84,7 +84,9 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
                 What year were you born?
               </label>
               <Input
-                type="number"
+                type="tel"
+                inputMode="numeric"
+                pattern="[0-9]*" 
                 value={birthYear}
                 onChange={(e) => setBirthYear(e.target.value)}
                 placeholder="YYYY"

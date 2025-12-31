@@ -1,11 +1,12 @@
 "use client";
+
 import React from "react";
 import { gsap } from "gsap";
 import "./FlowingMenu.css";
 
-/* EXPORT THIS so page.tsx can import it */
+/* EXPORT so page.tsx can import it */
 export interface MenuItemProps {
-  link: string;
+  link: string; // kept for compatibility, but no longer used
   text: string;
   marquee: string;
   direction?: "left" | "right";
@@ -14,6 +15,10 @@ export interface MenuItemProps {
 export interface FlowingMenuProps {
   items?: MenuItemProps[];
 }
+
+/* ============================================================
+   FLOWING MENU
+============================================================ */
 
 const FlowingMenu: React.FC<FlowingMenuProps> = ({ items = [] }) => {
   return (
@@ -27,8 +32,11 @@ const FlowingMenu: React.FC<FlowingMenuProps> = ({ items = [] }) => {
   );
 };
 
+/* ============================================================
+   MENU ITEM (GSAP-ONLY INTERACTION)
+============================================================ */
+
 const MenuItem: React.FC<MenuItemProps> = ({
-  link,
   text,
   marquee,
   direction = "left",
@@ -37,71 +45,123 @@ const MenuItem: React.FC<MenuItemProps> = ({
   const marqueeRef = React.useRef<HTMLDivElement>(null);
   const marqueeInnerRef = React.useRef<HTMLDivElement>(null);
 
-  const animationDefaults: gsap.TweenVars = { duration: 0.6, ease: "expo" };
+  const animationDefaults: gsap.TweenVars = {
+    duration: 0.6,
+    ease: "expo.out",
+  };
 
-  const distMetric = (x: number, y: number, x2: number, y2: number): number =>
+  /* ------------------------------------------------------------
+     INITIAL STATE — marquee hidden
+  ------------------------------------------------------------ */
+
+  React.useEffect(() => {
+    if (!marqueeRef.current || !marqueeInnerRef.current) return;
+
+    gsap.set(marqueeRef.current, { yPercent: 101 });
+    gsap.set(marqueeInnerRef.current, { yPercent: -101 });
+  }, []);
+
+  /* ------------------------------------------------------------
+     HELPERS — determine entry edge
+  ------------------------------------------------------------ */
+
+  const dist = (x: number, y: number, x2: number, y2: number) =>
     Math.pow(x - x2, 2) + Math.pow(y - y2, 2);
 
-  const findClosestEdge = (
+  const closestEdge = (
     mouseX: number,
     mouseY: number,
     width: number,
     height: number
   ): "top" | "bottom" =>
-    distMetric(mouseX, mouseY, width / 2, 0) <
-    distMetric(mouseX, mouseY, width / 2, height)
+    dist(mouseX, mouseY, width / 2, 0) <
+    dist(mouseX, mouseY, width / 2, height)
       ? "top"
       : "bottom";
 
+  /* ------------------------------------------------------------
+     HOVER IN
+  ------------------------------------------------------------ */
+
   const handleMouseEnter = (
-    ev: React.MouseEvent<HTMLAnchorElement>
-  ): void => {
+    ev: React.MouseEvent<HTMLDivElement>
+  ) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
+
     const rect = itemRef.current.getBoundingClientRect();
     const x = ev.clientX - rect.left;
     const y = ev.clientY - rect.top;
-    const edge = findClosestEdge(x, y, rect.width, rect.height);
+    const edge = closestEdge(x, y, rect.width, rect.height);
 
     gsap
       .timeline({ defaults: animationDefaults })
-      .set(marqueeRef.current, { y: edge === "top" ? "-101%" : "101%" }, 0)
-      .set(marqueeInnerRef.current, { y: edge === "top" ? "101%" : "-101%" }, 0)
-      .to([marqueeRef.current, marqueeInnerRef.current], { y: "0%" }, 0);
+      .set(marqueeRef.current, {
+        yPercent: edge === "top" ? -101 : 101,
+      })
+      .set(marqueeInnerRef.current, {
+        yPercent: edge === "top" ? 101 : -101,
+      })
+      .to([marqueeRef.current, marqueeInnerRef.current], {
+        yPercent: 0,
+      });
   };
+
+  /* ------------------------------------------------------------
+     HOVER OUT
+  ------------------------------------------------------------ */
 
   const handleMouseLeave = (
-    ev: React.MouseEvent<HTMLAnchorElement>
-  ): void => {
+    ev: React.MouseEvent<HTMLDivElement>
+  ) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
+
     const rect = itemRef.current.getBoundingClientRect();
     const x = ev.clientX - rect.left;
     const y = ev.clientY - rect.top;
-    const edge = findClosestEdge(x, y, rect.width, rect.height);
+    const edge = closestEdge(x, y, rect.width, rect.height);
 
     gsap
       .timeline({ defaults: animationDefaults })
-      .to(marqueeRef.current, { y: edge === "top" ? "-101%" : "101%" }, 0)
-      .to(marqueeInnerRef.current, { y: edge === "top" ? "101%" : "-101%" }, 0);
+      .to(marqueeRef.current, {
+        yPercent: edge === "top" ? -101 : 101,
+      })
+      .to(
+        marqueeInnerRef.current,
+        {
+          yPercent: edge === "top" ? 101 : -101,
+        },
+        0
+      );
   };
 
-  const repeatedMarqueeContent = React.useMemo(() => {
-    return Array.from({ length: 8 }).map((_, idx) => (
-      <span key={idx}>{marquee}</span>
-    ));
-  }, [marquee]);
+  /* ------------------------------------------------------------
+     MARQUEE CONTENT
+  ------------------------------------------------------------ */
+
+  const repeatedMarquee = React.useMemo(
+    () =>
+      Array.from({ length: 8 }).map((_, idx) => (
+        <span key={idx}>{marquee}</span>
+      )),
+    [marquee]
+  );
 
   return (
-    <div className="menu__item" ref={itemRef}>
-      <a
+    <div
+      className="menu__item"
+      ref={itemRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
         className="menu__item-link"
-        href={link}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        role="presentation"
+        aria-hidden="true"
       >
         {text}
-      </a>
+      </div>
 
       <div className="marquee" ref={marqueeRef}>
         <div className="marquee__inner-wrap" ref={marqueeInnerRef}>
@@ -111,7 +171,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
             }`}
             aria-hidden="true"
           >
-            {repeatedMarqueeContent}
+            {repeatedMarquee}
           </div>
         </div>
       </div>

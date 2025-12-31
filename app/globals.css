@@ -223,3 +223,65 @@ a[class*="font-bebas"][role="button"] {
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out forwards;
 }
+.sm-toggle {
+  font-family: var(--font-bebas), sans-serif !important;
+}
+button {
+  font-family: inherit;
+}
+@layer utilities {
+  .animate-bounce {
+    animation-duration: 2.2s;
+  }
+}
+/* ============================================================
+   STAGGERED MENU — PREVENT INVISIBLE OVERLAY BLOCKING PAGE
+============================================================ */
+
+/* Disable pointer events when menu is CLOSED */
+.staggered-menu-wrapper:not([data-open="true"]) {
+  pointer-events: none;
+}
+
+/* Re-enable only the toggle button */
+.staggered-menu-wrapper:not([data-open="true"]) .sm-toggle {
+  pointer-events: auto;
+}
+
+/* When menu is OPEN, allow interaction */
+.staggered-menu-wrapper[data-open="true"] {
+  pointer-events: auto;
+}
+/* ================= RASPBERRY PAGE MARQUEE OVERRIDES ================= */
+
+.raspberry-marquee .marquee-section {
+  background: #ff0000; /* 🔴 change background */
+}
+
+.raspberry-marquee .marquee-inner span {
+  color: #000000; /* ⚫ text color */
+  font-size: clamp(2.2rem, 6vw, 4.2rem); /* 🔠 font size */
+  letter-spacing: 0.06em;
+}
+/* ================= RASPBERRY PAGE MARQUEE SPEED ================= */
+
+/* Slower */
+.raspberry-marquee .marquee-inner {
+  animation-duration: 120s;
+}
+
+/* If direction="right" is used */
+.raspberry-marquee .marquee-inner.right {
+  animation-duration: 70s;
+}
+/* =========================
+   SALSA VERDE MARQUEE
+========================= */
+
+.salsa-marquee .marquee-section {
+  background: #8fc81c;
+}
+
+.salsa-marquee .marquee-inner span {
+  color: #000;
+}

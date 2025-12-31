@@ -1,4 +1,18 @@
 /* ===============================
+   FORCE BEBAS NEUE IN MENU (MOBILE SAFARI FIX)
+================================ */
+
+.staggered-menu-wrapper,
+.staggered-menu-panel,
+.sm-toggle,
+.sm-panel-item,
+.sm-panel-itemLabel,
+.sm-socials-title,
+.sm-socials-link {
+  font-family: "Bebas Neue", sans-serif !important;
+}
+
+/* ===============================
    WRAPPER
    =============================== */
 
@@ -9,7 +23,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 40;
-    pointer-events: none;       /* header + panel re-enable pointer-events */
+    pointer-events: auto;       /* header + panel re-enable pointer-events */
   }
   
   /* keep for future but no-op now */
@@ -285,7 +299,7 @@
   
   .sm-socials-title {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 500;
     color: var(--sm-accent, #ff0000);
   }
@@ -327,7 +341,7 @@
   }
   
   .sm-socials-link {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     color: #111;
     text-decoration: none;
@@ -402,6 +416,7 @@
   gap: 1.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+  position: relative;
 }
 
 .sm-toggle {
@@ -466,4 +481,16 @@
 .sm-panel-item:hover .sm-panel-itemLabel {
   color: #FFFF00 !important;
   text-shadow: 2px 2px 0 #000;
+}
+button {
+  font-family: inherit;
+}
+/* =====================================
+   MOBILE: Raise socials slightly
+===================================== */
+@media (max-width: 768px) {
+  .sm-socials {
+    margin-top: 6.5rem;   /* pulls it up from bottom */
+    padding-bottom: 1.5rem;
+  }
 }

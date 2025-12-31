@@ -10,9 +10,18 @@ export default function Navigation() {
   const [isFlavoursOpen, setIsFlavoursOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-sm border-b border-sour-red">
+    <nav
+    className="
+      fixed top-0 left-0 right-0 z-40
+      bg-black/90 backdrop-blur-sm border-b border-sour-red
+      h-[70px]                 /* ⭐ Taller bar */
+      sm:h-[78px]              /* ⭐ Slightly taller on bigger phones */
+      flex items-center justify-between   /* ⭐ Center the content */
+      px-4                     /* ⭐ Keep padding tight */
+    "
+  >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="flex justify-between items-center h-full">
           
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
