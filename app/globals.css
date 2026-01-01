@@ -285,3 +285,14 @@ button {
 .salsa-marquee .marquee-inner span {
   color: #000;
 }
+/* 🚫 Prevent closed staggered menu from blocking taps */
+.staggered-menu-panel[aria-hidden="true"] {
+  pointer-events: none !important;
+  visibility: hidden;
+}
+
+/* ✅ Allow interaction ONLY when open */
+.staggered-menu-panel[aria-hidden="false"] {
+  pointer-events: auto !important;
+  visibility: visible;
+}
