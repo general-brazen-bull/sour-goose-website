@@ -135,7 +135,7 @@ export default function SalsaPage() {
       font-bebas
       text-[#8FC81C]
       tracking-wide
-      text-[clamp(5.5rem,11vw,6.5rem)]
+      text-[clamp(5rem,11vw,6.5rem)]
       leading-none
       whitespace-nowrap
     "
@@ -143,7 +143,7 @@ export default function SalsaPage() {
       font-bebas
       text-[#8FC81C]
       tracking-wide
-      text-[clamp(5.5rem,11vw,6.5rem)]
+      text-[clamp(5rem,11vw,6.5rem)]
       leading-none
       whitespace-nowrap
     "
@@ -177,29 +177,28 @@ export default function SalsaPage() {
 
   {/* CTA */}
   <a
-    href="https://deepbluedistilleries.ca/product-tag/sour-goose/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-full flex justify-center mb-40"
+  href="https://deepbluedistilleries.ca/product-tag/sour-goose/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full flex justify-center mb-40 pointer-events-auto relative z-30"
+>
+  <button
+    className="
+      w-[50vw]
+      bg-[#FFFF00]
+      text-black
+      font-bebas
+      text-2xl
+      py-4
+      tracking-wide
+      transition-all duration-300
+      active:scale-[0.97]
+      shadow-[0_0_25px_rgba(255,255,0,0.6)]
+    "
   >
-    <button
-      className="
-        w-[50vw]
-        bg-[#FFFF00]
-        text-black
-        font-bebas
-        text-2xl
-        py-4
-        tracking-wide
-        transition-all duration-300
-        active:scale-[0.97]
-        shadow-[0_0_25px_rgba(255,255,0,0.6)]
-      "
-    >
-      BUY NOW
-    </button>
-  </a>
-
+    BUY NOW
+  </button>
+</a>
 </div>
 </section>
 
@@ -274,26 +273,59 @@ export default function SalsaPage() {
         </section>
       </div>
 
-      {/* FOOTER */}
-      <footer className="bg-black bg-opacity-80 py-12 border-t border-sour-red mt-24">
-        <div className="max-w-6xl mx-auto text-center space-y-8">
-          <div className="flex justify-center gap-8">
-            <a href="https://instagram.com/drinksourgoose" className="flex items-center gap-2 text-lightning-yellow">
-              <Instagram size={22} />
-              <span className="font-bebas text-lg">@DRINKSOURGOOSE</span>
-            </a>
+        {/* FOOTER */}
+<footer className="bg-black py-8 border-t border-sour-red relative z-10">
+  <div className="max-w-md mx-auto px-6 text-center space-y-4">
 
-            <a href="https://www.tiktok.com/@drinksourgoose" className="flex items-center gap-2 text-lightning-yellow">
-              <TikTokIcon className="w-[22px] h-[22px]" />
-              <span className="font-bebas text-lg">@DRINKSOURGOOSE</span>
-            </a>
-          </div>
+    {/* ROW 1 — Socials */}
+    <div className="flex justify-center items-center gap-6">
+      <a
+        href="https://instagram.com/drinksourgoose"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-lightning-yellow hover:text-white transition-colors"
+      >
+        <Instagram size={18} />
+        <span className="font-bebas-ui text-lg tracking-wide">
+          @DRINKSOURGOOSE
+        </span>
+      </a>
 
-          <div className="text-sm text-gray-400">
-            Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
-          </div>
-        </div>
-      </footer>
+      <a
+        href="https://www.tiktok.com/@drinksourgoose"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-lightning-yellow hover:text-white transition-colors"
+      >
+        <TikTokIcon className="w-[18px] h-[18px]" />
+        <span className="font-bebas-ui text-lg tracking-wide">
+          @DRINKSOURGOOSE
+        </span>
+      </a>
+    </div>
+
+    {/* ROW 2 — Distillery Link */}
+    <div>
+      <a
+        href="https://deepbluedistilleries.ca"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 text-lightning-yellow hover:text-white transition-colors"
+      >
+        <ExternalLink size={16} />
+        <span className="font-bebas-ui text-lg tracking-wide">
+          DEEPBLUEDISTILLERIES.CA
+        </span>
+      </a>
+    </div>
+
+    {/* Legal */}
+    <div className="text-[14px] text-gray-400 leading-snug">
+      Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
+    </div>
+
+  </div>
+</footer>
     </main>
   );
 }
