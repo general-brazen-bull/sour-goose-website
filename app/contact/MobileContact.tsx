@@ -15,6 +15,12 @@ const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "Raspberry", ariaLabel: "Raspberry flavour", link: "/raspberry" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour", link: "/salsa-verde" },
+  {
+    label: "Cocktails",
+    ariaLabel: "View cocktail recipes",
+    link: "/cocktails",
+  },
+  
   { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
   {
     label: "Shop Now",
@@ -98,30 +104,52 @@ export default function MobileContact() {
             pt-32
           "
         >
-          <DecryptedText
-            text="LET'S TALK GOOSE"
-            speed={80}
-            maxIterations={12}
-            sequential
-            revealDirection="start"
-            animateOn="view"
-            onFinish={() =>(true)}
-            className="
-              font-bebas-ui
-              text-[clamp(5rem,11vw,5rem)]
-              leading-[0.92]
-              tracking-[0.08em]
-              text-lightning-yellow
-              lightning-text
-            "
-            encryptedClassName="
-              font-bebas-ui
-              text-[clamp(5rem,11vw,5rem)]
-              leading-[0.92]
-              tracking-[0.08em]
-              text-lightning-yellow
-            "
-          />
+          {/* GHOST TEXT — defines height */}
+  <h1
+    aria-hidden
+    className="
+      font-bebas-ui
+      text-[clamp(5rem,11vw,5rem)]
+      leading-[0.92]
+      tracking-[0.08em]
+      text-lightning-yellow
+      opacity-0
+      pointer-events-none
+      text-center
+    "
+  >
+    LET&apos;S TALK GOOSE
+  </h1>
+
+  {/* ANIMATED TEXT — overlays ghost */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <DecryptedText
+      text="LET'S TALK GOOSE"
+      speed={80}
+      maxIterations={12}
+      sequential
+      revealDirection="start"
+      animateOn="view"
+      onFinish={() => {}}
+      className="
+        font-bebas-ui
+        text-[clamp(5rem,11vw,5rem)]
+        leading-[0.92]
+        tracking-[0.08em]
+        text-lightning-yellow
+        lightning-text
+        text-center
+      "
+      encryptedClassName="
+        font-bebas-ui
+        text-[clamp(5rem,11vw,5rem)]
+        leading-[0.92]
+        tracking-[0.08em]
+        text-lightning-yellow
+        text-center
+      "
+    />
+  </div>
 
           <div className="mt-6 max-w-md space-y-3">
             <p className="text-xl text-gray-300 leading-relaxed">
@@ -246,25 +274,51 @@ export default function MobileContact() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-black py-8 border-t border-sour-red relative z-10">
-        <div className="max-w-md mx-auto px-6 text-center space-y-4">
-          <div className="flex justify-center gap-6">
-            <a href="https://instagram.com/drinksourgoose" className="flex items-center gap-2 text-lightning-yellow">
+     {/* FOOTER — MATCHES OTHER MOBILE PAGES */}
+     <footer className="bg-black py-10 border-t border-sour-red relative z-10">
+        <div className="max-w-md mx-auto px-6 text-center space-y-6">
+
+          {/* SOCIALS — ONE ROW */}
+          <div className="flex justify-center items-center gap-8">
+            <a
+              href="https://instagram.com/drinksourgoose"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white"
+            >
               <Instagram size={18} />
               <span className="font-bebas-ui text-lg">@DRINKSOURGOOSE</span>
             </a>
-            <a href="https://www.tiktok.com/@drinksourgoose" className="flex items-center gap-2 text-lightning-yellow">
+
+            <a
+              href="https://www.tiktok.com/@drinksourgoose"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white"
+            >
               <TikTokIcon className="w-[18px] h-[18px]" />
               <span className="font-bebas-ui text-lg">@DRINKSOURGOOSE</span>
             </a>
           </div>
-          <div className="text-[14px] text-gray-400">
+
+          {/* DISTILLERY */}
+          <a
+            href="https://deepbluedistilleries.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-lightning-yellow hover:text-white"
+          >
+            <ExternalLink size={16} />
+            <span className="font-bebas-ui text-lg">
+              DEEPBLUEDISTILLERIES.CA
+            </span>
+          </a>
+
+          <div className="text-sm text-gray-400">
             Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
           </div>
         </div>
       </footer>
-
     </div>
   )
 }

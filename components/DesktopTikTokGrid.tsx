@@ -1,67 +1,166 @@
 // components/DesktopTikTokGrid.tsx
 "use client";
 
-import { useEffect } from "react";
+import Image from "next/image";
 import DecryptedText from "./DecryptedText";
 
 const videos = [
-  "https://www.tiktok.com/@drinksourgoose/video/7584607408048164114",
-  "https://www.tiktok.com/@drinksourgoose/video/7540419881980808453",
-  "https://www.tiktok.com/@drinksourgoose/video/7582766069870300434",
+  {
+    id: "1",
+    thumb: "/t1.webp",
+    url: "https://www.tiktok.com/@drinksourgoose/video/7582766069870300434",
+  },
+  {
+    id: "2",
+    thumb: "/t2.webp",
+    url: "https://www.tiktok.com/@drinksourgoose/video/7540419881980808453",
+  },
+  {
+    id: "3",
+    thumb: "/t3.webp",
+    url: "https://www.tiktok.com/@drinksourgoose/video/7584607408048164114",
+  },
 ];
 
 export default function DesktopTikTokGrid() {
-  useEffect(() => {
-    // Load TikTok embed script once
-    if (!document.querySelector('script[src="https://www.tiktok.com/embed.js"]')) {
-      const script = document.createElement("script");
-      script.src = "https://www.tiktok.com/embed.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
   return (
-    <section className="hidden lg:block relative mt-40 mb-40 px-16">
+    <section className="relative mt-32 mb-32 px-6 lg:px-16">
       {/* TITLE */}
-      <div className="text-center mb-20 mt-[70px]">
-        <DecryptedText
-          text="GOOSE IN THE WILD"
-          speed={100}
-          sequential
-          maxIterations={12}
-          revealDirection="start"
-          animateOn="view"
+      <div className="text-center mb-16">
+  <div className="relative w-full">
+
+    {/* GHOST TEXT */}
+    <h2
+      aria-hidden
+      className="
+        font-bebas
+        text-lightning-yellow
+        text-[clamp(6rem,7vw,9rem)]
+        leading-[0.9]
+        tracking-wide
+        opacity-0
+        pointer-events-none
+      "
+    >
+      GOOSE IN THE WILD
+    </h2>
+
+    {/* ANIMATED TEXT */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <DecryptedText
+        text="GOOSE IN THE WILD"
+        speed={100}
+        sequential
+        maxIterations={12}
+        revealDirection="start"
+        animateOn="view"
+        className="
+          font-bebas text-lightning-yellow lightning-text
+          text-[clamp(6rem,7vw,9rem)]
+          tracking-wide
+          leading-[0.9]
+        "
+        encryptedClassName="
+          font-bebas text-lightning-yellow
+          text-[clamp(6rem,7vw,9rem)]
+          leading-[0.9]
+        "
+        onFinish={() => {}}
+      />
+    </div>
+
+  </div>
+</div>
+
+
+      {/* GRID — RESPONSIVE */}
+      <div className="
+        grid gap-8 max-w-6xl mx-auto
+        grid-cols-1
+        sm:grid-cols-2
+        lg:grid-cols-3
+      ">
+       {videos.map((video) => (
+  <div
+    key={video.id}
+    className="relative overflow-hidden rounded-2xl border border-sour-red/40"
+  >
+    {/* CLICKABLE IMAGE */}
+    <a
+      href={video.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block"
+    >
+      <Image
+        src={video.thumb}
+        alt="Sour Goose on TikTok"
+        width={600}
+        height={1000}
+        className="
+          object-cover transition-transform duration-500
+          lg:group-hover:scale-105
+        "
+      />
+
+      {/* DESKTOP HOVER OVERLAY ONLY */}
+      <div
+        className="
+          hidden lg:flex
+          absolute inset-0 items-center justify-center
+          bg-black/70 opacity-0
+          group-hover:opacity-100
+          transition
+        "
+      >
+        <span
           className="
-            text-6xl sm:text-7xl md:text-8xl lg:text-9xl
-            font-bebas text-lightning-yellow lightning-text
-            tracking-wide transition-all duration-300
-            hover:drop-shadow-[0_0_40px_rgba(255,255,0,1)]
+            font-bebas text-white text-3xl tracking-wide
           "
-          encryptedClassName="
-            text-6xl sm:text-7xl md:text-8xl lg:text-9xl
-            font-bebas text-lightning-yellow
-          "
-          onFinish={() => {}}
-        />
+        >
+          WATCH ON TIKTOK
+        </span>
+      </div>
+    </a>
+
+    {/* MOBILE CTA BELOW IMAGE */}
+    <a
+      href={video.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        lg:hidden
+        block text-center py-4
+        font-bebas text-xl tracking-wide
+        text-white
+        bg-black
+      "
+    >
+      WATCH ON TIKTOK →
+    </a>
+  </div>
+))}
+
       </div>
 
-      {/* EMBEDS */}
-      <div className="flex justify-center gap-12 max-w-6xl mx-auto">
-        {videos.map((url, index) => (
-          <blockquote
-            key={index}
-            className="tiktok-embed"
-            cite={url}
-            style={{ maxWidth: 325, minWidth: 325 }}
+      {/* FOLLOW CTA */}
+      <div className="mt-20 text-center max-w-4xl mx-auto px-4">
+        <p className="font-bebas text-3xl sm:text-4xl lg:text-5xl tracking-wide text-white">
+          Follow{" "}
+          <a
+            href="https://www.tiktok.com/@drinksourgoose"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              text-lightning-yellow
+              hover:text-[#ff0000]
+              transition-colors
+            "
           >
-            <section>
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                Watch on TikTok
-              </a>
-            </section>
-          </blockquote>
-        ))}
+            Kevin The Goose
+          </a>{" "}
+          on TikTok for chaos, cocktails, and unhinged Goose behaviour.
+        </p>
       </div>
     </section>
   );

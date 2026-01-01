@@ -22,6 +22,12 @@ const navMenuItems = [
   { label: "Raspberry", ariaLabel: "Raspberry flavour", link: "/raspberry" },
 
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour", link: "/salsa-verde" },
+  {
+    label: "Cocktails",
+    ariaLabel: "View cocktail recipes",
+    link: "/cocktails",
+  },
+  
 
   { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
 

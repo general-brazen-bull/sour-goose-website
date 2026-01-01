@@ -20,7 +20,7 @@ import StaggeredMenu from "../../components/StaggeredMenu";
 import MarqueeSection from "../../components/MarqueeSection";
 import BackToTop from "../../components/BackToTop";
 import LightPillar from '@/components/LightPillar';
-import TikTokEmbed from "@/components/TikTokEmbed";
+import DesktopTikTokGrid from "@/components/DesktopTikTokGrid";
 
 
 
@@ -42,6 +42,7 @@ export default function MobileHome() {
 
   const [showHash, setShowHash] = useState(false);
   const [showGoosePeek, setShowGoosePeek] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Subtext content
   const typewriterText =
@@ -124,7 +125,7 @@ export default function MobileHome() {
         clearInterval(interval);
         setTypingDone(true);
       }
-    }, 15);
+    }, 30);
 
     return () => clearInterval(interval);
   }, [showSubtext]);
@@ -176,22 +177,34 @@ const scrollToTop = () => {
   /* ========================= NAV DATA ========================= */
 
   const navMenuItems = [
-    { label: "Home", ariaLabel: "Go to home", link: "/" },
+    { label: "Home", ariaLabel: "Go to home page", link: "/" },
+  
     { label: "Raspberry", ariaLabel: "Raspberry flavour", link: "/raspberry" },
+  
     { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour", link: "/salsa-verde" },
+    {
+      label: "Cocktails",
+      ariaLabel: "View cocktail recipes",
+      link: "/cocktails",
+    },
+    
     { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
+  
+  
+  
     {
       label: "Shop Now",
       ariaLabel: "Shop Sour Goose",
       link: "https://deepbluedistilleries.ca/product-tag/sour-goose/",
     },
   ];
-
+  
   const navSocialItems = [
     { label: "Instagram", link: "https://instagram.com/drinksourgoose" },
     { label: "TikTok", link: "https://www.tiktok.com/@drinksourgoose" },
     { label: "Deep Blue Distillery", link: "https://deepbluedistilleries.ca" },
   ];
+  
 
   /* ========================= RENDER ========================= */
 
@@ -232,6 +245,8 @@ const scrollToTop = () => {
               colors={["#FF0000", "#8FC81C"]}
               accentColor="#FFFF00"
               disableLogo
+              onMenuOpen={() => setMenuOpen(true)}
+              onMenuClose={() => setMenuOpen(false)}
             />
           </div>
         </div>
@@ -391,28 +406,52 @@ const scrollToTop = () => {
 />
 </div>
 
-<div className="mt-20 mb-20 pt-20 px-4 flex justify-center text-center md:mt-24 md:mb-16 leading-[1]
-">
-<DecryptedText
-  text="HOW DO YOU GOOSE?"
-  speed={100}
-  sequential
-  maxIterations={12}
-  revealDirection="start"
-  animateOn="view"   // ✅ THIS IS THE FIX
-  onFinish={() => {}}
-  className="
-    font-bebas text-lightning-yellow lightning-text
-    text-[clamp(6rem,8vw,4.8rem)]
-    md:text-7xl
-  "
-  encryptedClassName="
-    font-bebas text-lightning-yellow
-    text-[clamp(4rem,8vw,4.8rem)]
-    md:text-7xl
-  "
-/>
+<div className="mt-20 mb-20 pt-20 px-4 flex justify-center text-center">
+  <div className="relative w-full max-w-3xl">
+
+    {/* GHOST TEXT — DEFINES HEIGHT */}
+    <h2
+      aria-hidden
+      className="
+        font-bebas
+        text-lightning-yellow
+        text-[clamp(4.8rem,8vw,6rem)]
+        leading-[0.95]
+        opacity-0
+        pointer-events-none
+      "
+    >
+      HOW DO YOU<br />GOOSE?
+    </h2>
+
+    {/* ANIMATED TEXT */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <DecryptedText
+        text="HOW DO YOU GOOSE?"
+        speed={100}
+        sequential
+        maxIterations={12}
+        revealDirection="start"
+        animateOn="view"
+        className="
+          font-bebas text-lightning-yellow lightning-text
+          text-[clamp(5rem,7vw,9rem)]
+          tracking-wide
+          leading-[0.9]
+        "
+        encryptedClassName="
+          font-bebas text-lightning-yellow
+          text-[clamp(5rem,7vw,9rem)]
+          leading-[0.9]
+        "
+        onFinish={() => {}}
+      />
+    </div>
+
+  </div>
 </div>
+
+
 
       {/* FLAVOUR CARDS */}
       <section className="px-6 grid gap-16 max-w-md mx-auto mb-24">
@@ -465,63 +504,39 @@ const scrollToTop = () => {
         </SpotlightCard>
       </section>
 
-{/* TIKTOK FEED */}
-<section className="mt-20 px-4">
-<div className="mt-20 pt-20 mb-20 px-4 flex justify-center text-center md:mt-24 md:mb-16 leading-[1]
-">
-<DecryptedText
-  text="GOOSE IN THE WILD"
-  speed={100}
-  sequential
-  maxIterations={12}
-  revealDirection="start"
-  animateOn="view"   // ✅ THIS IS THE FIX
-  onFinish={() => {}}
-  className="
-    font-bebas text-lightning-yellow lightning-text
-    text-[clamp(6rem,8vw,4.8rem)]
-    md:text-7xl
-  "
-  encryptedClassName="
-    font-bebas text-lightning-yellow
-    text-[clamp(4rem,8vw,4.8rem)]
-    md:text-7xl
-  "
-/>
-</div>
-
-  <TikTokEmbed url="https://www.tiktok.com/@drinksourgoose/video/7582766069870300434" />
-</section>
+      <DesktopTikTokGrid />
 
       <div className="marquee-wrap marquee-bottom">
   <MarqueeSection text="Distilled & Bottled in British Columbia" />
 </div>
 
-<div className="mt-20 flex justify-center relative z-[999999] pointer-events-auto">
-  <button
-    type="button"
-    onClick={(e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      scrollToTop();
-    }}
-    aria-label="Back to top"
-    className="
-      h-16 w-16 rounded-full
-      border-[3px] border-lightning-yellow
-      text-lightning-yellow bg-transparent
-      flex items-center justify-center
-      animate-bounce
-      hover:scale-110 active:scale-95
-      transition-transform
-      shadow-[0_0_18px_rgba(255,255,0,0.45)]
-      touch-manipulation
-    "
-    style={{ WebkitTapHighlightColor: "transparent" }}
-  >
-    <ChevronUp size={40} strokeWidth={2} />
-  </button>
-</div>
+{!menuOpen && (
+  <div className="mt-20 flex justify-center relative z-[999999] pointer-events-auto">
+    <button
+      type="button"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollToTop();
+      }}
+      aria-label="Back to top"
+      className="
+        h-16 w-16 rounded-full
+        border-[3px] border-lightning-yellow
+        text-lightning-yellow bg-transparent
+        flex items-center justify-center
+        animate-bounce
+        hover:scale-110 active:scale-95
+        transition-transform
+        shadow-[0_0_18px_rgba(255,255,0,0.45)]
+        touch-manipulation
+      "
+      style={{ WebkitTapHighlightColor: "transparent" }}
+    >
+      <ChevronUp size={40} strokeWidth={2} />
+    </button>
+  </div>
+)}
 
 
 

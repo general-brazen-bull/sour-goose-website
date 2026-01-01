@@ -285,3 +285,6 @@ button {
 .salsa-marquee .marquee-inner span {
   color: #000;
 }
+.sm-prelayers {
+  pointer-events: none;
+}

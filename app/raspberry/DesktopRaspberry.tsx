@@ -19,6 +19,12 @@ const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "Raspberry", ariaLabel: "Raspberry flavour", link: "/raspberry" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour", link: "/salsa-verde" },
+  {
+    label: "Cocktails",
+    ariaLabel: "View cocktail recipes",
+    link: "/cocktails",
+  },
+  
   { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
   {
     label: "Shop Now",
@@ -137,7 +143,8 @@ export default function RaspberryPage() {
         text-[clamp(4.5rem,10vw,9.5rem)]
         leading-none
         transition-all duration-300
-        group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9),0_0_90px_rgba(255,0,0,0.7),0_0_140px_rgba(255,0,0,0.5)]
+group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_0_40px_rgba(255,0,0,0.5)]
+
       "
       encryptedClassName="
         font-bebas

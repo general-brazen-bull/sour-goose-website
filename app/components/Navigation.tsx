@@ -11,19 +11,19 @@ export default function Navigation() {
 
   return (
     <nav
-    className="
-      fixed top-0 left-0 right-0 z-40
-      bg-black/90 backdrop-blur-sm border-b border-sour-red
-      h-[70px]                 /* ⭐ Taller bar */
-      sm:h-[78px]              /* ⭐ Slightly taller on bigger phones */
-      flex items-center justify-between   /* ⭐ Center the content */
-      px-4                     /* ⭐ Keep padding tight */
-    "
-  >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-between items-center h-full">
-          
-          {/* Logo */}
+      className="
+        fixed top-0 left-0 right-0 z-40
+        bg-black/90 backdrop-blur-sm border-b border-sour-red
+        h-[70px]
+        sm:h-[78px]
+        flex items-center justify-between
+        px-4
+      "
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex justify-between items-center h-full">
+
+          {/* LOGO */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/Sour Goose Logo.webp"
@@ -35,10 +35,9 @@ export default function Navigation() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* ================= DESKTOP NAV ================= */}
           <div className="hidden md:flex items-center space-x-6">
 
-            {/* HOME */}
             <Link
               href="/"
               className="font-bebas ui-tight text-xs sm:text-sm md:text-base text-white hover:text-sour-red hover-lightning transition"
@@ -46,7 +45,7 @@ export default function Navigation() {
               HOME
             </Link>
 
-            {/* FLAVOURS DROPDOWN */}
+            {/* FLAVOURS */}
             <div
               className="relative"
               onMouseEnter={() => setIsFlavoursOpen(true)}
@@ -62,7 +61,6 @@ export default function Navigation() {
 
               {isFlavoursOpen && (
                 <div className="absolute left-0 top-full bg-black border border-sour-red rounded-sm shadow-lg w-44 py-1 z-50">
-
                   <Link
                     href="/raspberry"
                     className="block px-4 py-2 font-bebas ui-tight text-white hover:text-[#FF0000] hover-lightning whitespace-nowrap transition"
@@ -76,10 +74,17 @@ export default function Navigation() {
                   >
                     Salsa Verde
                   </Link>
-
                 </div>
               )}
             </div>
+
+            {/* COCKTAILS */}
+            <Link
+              href="/cocktails"
+              className="font-bebas ui-tight text-xs sm:text-sm md:text-base text-white hover:text-lightning-yellow hover-lightning transition"
+            >
+              COCKTAILS
+            </Link>
 
             {/* CONTACT */}
             <Link
@@ -94,24 +99,31 @@ export default function Navigation() {
               href="https://deepbluedistilleries.ca/product/sour-goose-750ml/"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 sm:ml-4 inline-flex items-center justify-center rounded-md font-bebas ui-tight text-xs sm:text-sm md:text-base text-white px-4 sm:px-5 md:px-6 py-1 bg-sour-red hover:bg-red-700 transition hover-lightning"
+              className="
+                ml-2 sm:ml-4 inline-flex items-center justify-center
+                rounded-md font-bebas ui-tight
+                text-xs sm:text-sm md:text-base
+                text-white px-4 sm:px-5 md:px-6 py-1
+                bg-sour-red hover:bg-red-700
+                transition hover-lightning
+              "
             >
               SHOP NOW
             </a>
 
           </div>
 
-          {/* Mobile Toggle */}
+          {/* ================= MOBILE TOGGLE ================= */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-white hover:text-sour-red"
+            aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
         </div>
 
-        {/* Mobile Navigation */}
+        {/* ================= MOBILE MENU ================= */}
         {isOpen && (
           <div className="md:hidden bg-black border-t border-sour-red">
             <div className="px-4 py-4 space-y-2">
@@ -138,6 +150,14 @@ export default function Navigation() {
                 className="block font-bebas ui-tight text-lg text-white hover:text-[#8FC81C] hover-lightning"
               >
                 Salsa Verde
+              </Link>
+
+              <Link
+                href="/cocktails"
+                onClick={() => setIsOpen(false)}
+                className="block font-bebas ui-tight text-lg text-white hover:text-lightning-yellow hover-lightning"
+              >
+                Cocktails
               </Link>
 
               <Link
