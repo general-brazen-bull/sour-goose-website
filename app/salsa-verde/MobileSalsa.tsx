@@ -77,7 +77,9 @@ export default function SalsaPage() {
         />
       </div>
 
-      <GoosePeek />
+      <div className="pointer-events-none">
+  <GoosePeek />
+</div>
 
         {/* ================= MOBILE HERO ================= */}
 <section className="relative min-h-screen w-full overflow-hidden bg-black flex flex-col items-center text-center px-6 pt-28">
@@ -176,13 +178,16 @@ export default function SalsaPage() {
   </p>
 
   {/* CTA */}
-  <a
-  href="https://deepbluedistilleries.ca/product-tag/sour-goose/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full flex justify-center mb-40 pointer-events-auto relative z-30"
->
+  <div className="w-full flex justify-center mb-40 relative z-[9999] pointer-events-auto">
   <button
+    type="button"
+    onClick={() => {
+      window.open(
+        "https://deepbluedistilleries.ca/product-tag/sour-goose/",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }}
     className="
       w-[50vw]
       bg-[#FFFF00]
@@ -194,11 +199,12 @@ export default function SalsaPage() {
       transition-all duration-300
       active:scale-[0.97]
       shadow-[0_0_25px_rgba(255,255,0,0.6)]
+      pointer-events-auto
     "
   >
     BUY NOW
   </button>
-</a>
+</div>
 </div>
 </section>
 
