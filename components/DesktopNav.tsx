@@ -19,7 +19,7 @@ const navMenuItems = [
 const navSocialItems = [
   { label: "Instagram", link: "https://instagram.com/drinksourgoose" },
   { label: "TikTok", link: "https://www.tiktok.com/@drinksourgoose" },
-  { label: "Deep Blue Distillery", link: "https://deepbluedistilleries.ca" },
+  { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca" },
 ];
 
 export default function DesktopNav() {
