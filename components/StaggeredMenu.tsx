@@ -7,6 +7,9 @@ export interface StaggeredMenuItem {
   label: string;
   ariaLabel: string;
   link: string;
+  external?: boolean;
+  target?: string;
+  rel?: string;
 }
 
 export interface StaggeredMenuSocialItem {
@@ -418,6 +421,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                     href={it.link}
                     aria-label={it.ariaLabel}
                     data-index={idx + 1}
+                    {...(it.external
+                      ? {
+                          target: it.target ?? "_blank",
+                          rel: it.rel ?? "noopener noreferrer",
+                        }
+                      : {})}
                   >
                     <span className="sm-panel-itemLabel">{it.label}</span>
                   </a>

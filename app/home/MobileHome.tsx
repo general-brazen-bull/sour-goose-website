@@ -196,6 +196,9 @@ const scrollToTop = () => {
       label: "Shop Now",
       ariaLabel: "Shop Sour Goose",
       link: "https://deepbluedistilleries.ca/product-tag/sour-goose/",
+      external: true, // 👈 ADD THIS
+      target: "_blank",
+      rel: "noopener noreferrer",
     },
   ];
   

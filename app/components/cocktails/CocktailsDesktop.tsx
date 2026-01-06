@@ -22,13 +22,19 @@ const navMenuItems = [
     label: "Shop Now",
     ariaLabel: "Shop Sour Goose",
     link: "https://deepbluedistilleries.ca/product-tag/sour-goose/",
+    external: true, // 👈 ADD THIS
+    target: "_blank",
+    rel: "noopener noreferrer",
   },
 ];
 
 const navSocialItems = [
-  { label: "Instagram", link: "https://instagram.com/drinksourgoose" },
-  { label: "TikTok", link: "https://www.tiktok.com/@drinksourgoose" },
-  { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca" },
+  { label: "Instagram", link: "https://instagram.com/drinksourgoose", target: "_blank",
+    rel: "noopener noreferrer",},
+  { label: "TikTok", link: "https://www.tiktok.com/@drinksourgoose", target: "_blank",
+    rel: "noopener noreferrer", },
+  { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca", target: "_blank",
+    rel: "noopener noreferrer", },
 ];
 
 export default function CocktailsDesktop() {
