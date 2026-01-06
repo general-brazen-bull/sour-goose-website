@@ -252,8 +252,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-black py-12 border-t border-sour-red relative z-10">
+       {/* FOOTER */}
+       <footer className="bg-black py-12 border-t border-sour-red relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
 
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
@@ -261,7 +261,7 @@ export default function ContactPage() {
               href="https://instagram.com/drinksourgoose"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning relative z-[10000] pointer-events-auto"
             >
               <Instagram size={22} />
               <span className="font-bebas-ui text-lg tracking-wide">@DRINKSOURGOOSE</span>
@@ -271,7 +271,7 @@ export default function ContactPage() {
               href="https://www.tiktok.com/@drinksourgoose"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning"
+              className="group flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning relative z-[10000] pointer-events-auto"
             >
               <TikTokIcon className="w-[22px] h-[22px]" />
               <span className="font-bebas-ui text-lg tracking-wide">@DRINKSOURGOOSE</span>
@@ -281,7 +281,7 @@ export default function ContactPage() {
               href="https://deepbluedistilleries.ca"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning relative z-[10000] pointer-events-auto"
             >
               <ExternalLink size={22} />
               <span className="font-bebas-ui text-lg tracking-wide">DEEPBLUEDISTILLERIES.CA</span>

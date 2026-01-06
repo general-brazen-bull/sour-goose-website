@@ -144,7 +144,7 @@ export default function CocktailsDesktop() {
               href="https://instagram.com/drinksourgoose"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning relative z-[10000] pointer-events-auto"
             >
               <Instagram size={22} />
               <span className="font-bebas-ui text-lg tracking-wide">@DRINKSOURGOOSE</span>
@@ -154,7 +154,7 @@ export default function CocktailsDesktop() {
               href="https://www.tiktok.com/@drinksourgoose"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning"
+              className="group flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning relative z-[10000] pointer-events-auto"
             >
               <TikTokIcon className="w-[22px] h-[22px]" />
               <span className="font-bebas-ui text-lg tracking-wide">@DRINKSOURGOOSE</span>
@@ -164,7 +164,7 @@ export default function CocktailsDesktop() {
               href="https://deepbluedistilleries.ca"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white hover-lightning relative z-[10000] pointer-events-auto"
             >
               <ExternalLink size={22} />
               <span className="font-bebas-ui text-lg tracking-wide">DEEPBLUEDISTILLERIES.CA</span>

@@ -154,7 +154,7 @@ export default function CocktailsMobile() {
               href="https://instagram.com/drinksourgoose"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lightning-yellow hover:text-white"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white relative z-[10000] pointer-events-auto"
             >
               <Instagram size={18} />
               <span className="font-bebas-ui text-lg">@DRINKSOURGOOSE</span>
@@ -164,7 +164,7 @@ export default function CocktailsMobile() {
               href="https://www.tiktok.com/@drinksourgoose"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-lightning-yellow hover:text-white"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white relative z-[10000] pointer-events-auto"
             >
               <TikTokIcon className="w-[18px] h-[18px]" />
               <span className="font-bebas-ui text-lg">@DRINKSOURGOOSE</span>
@@ -176,7 +176,7 @@ export default function CocktailsMobile() {
             href="https://deepbluedistilleries.ca"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-lightning-yellow hover:text-white"
+            className="inline-flex items-center gap-2 text-lightning-yellow hover:text-white relative z-[10000] pointer-events-auto"
           >
             <ExternalLink size={16} />
             <span className="font-bebas-ui text-lg">
