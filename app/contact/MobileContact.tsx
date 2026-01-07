@@ -277,8 +277,8 @@ export default function MobileContact() {
         </div>
       </section>
 
-     {/* FOOTER — MATCHES OTHER MOBILE PAGES */}
-     <footer className="bg-black py-10 border-t border-sour-red relative z-10">
+   {/* FOOTER — MATCHES OTHER MOBILE PAGES */}
+   <footer className="bg-black py-10 border-t border-sour-red relative z-10">
         <div className="max-w-md mx-auto px-6 text-center space-y-6">
 
           {/* SOCIALS — ONE ROW */}
@@ -318,7 +318,8 @@ export default function MobileContact() {
           </a>
 
           <div className="text-sm text-gray-400">
-            Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
+            Proudly crafted in British Columbia. Drink responsibly. Must be 19+. <br /> <br />
+            @ Copyright 2026 - All Rights Reserved. Design by Brazen Bull Creative
           </div>
         </div>
       </footer>

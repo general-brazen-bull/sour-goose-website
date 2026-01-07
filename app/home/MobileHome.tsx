@@ -544,59 +544,52 @@ const scrollToTop = () => {
 
 
 
-     {/* FOOTER */}
-<footer className="bg-black py-8 border-t border-sour-red relative z-10">
-  <div className="max-w-md mx-auto px-6 text-center space-y-4">
+ {/* FOOTER — MATCHES OTHER MOBILE PAGES */}
+ <footer className="bg-black py-10 border-t border-sour-red relative z-10">
+        <div className="max-w-md mx-auto px-6 text-center space-y-6">
 
-    {/* ROW 1 — Socials */}
-    <div className="flex justify-center items-center gap-6">
-      <a
-        href="https://instagram.com/drinksourgoose"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 text-lightning-yellow hover:text-white transition-colors relative z-[10000] pointer-events-auto"
-      >
-        <Instagram size={18} />
-        <span className="font-bebas-ui text-lg tracking-wide">
-          @DRINKSOURGOOSE
-        </span>
-      </a>
+          {/* SOCIALS — ONE ROW */}
+          <div className="flex justify-center items-center gap-8">
+            <a
+              href="https://instagram.com/drinksourgoose"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white relative z-[10000] pointer-events-auto"
+            >
+              <Instagram size={18} />
+              <span className="font-bebas-ui text-lg">@DRINKSOURGOOSE</span>
+            </a>
 
-      <a
-        href="https://www.tiktok.com/@drinksourgoose"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 text-lightning-yellow hover:text-white transition-colors relative z-[10000] pointer-events-auto"
-      >
-        <TikTokIcon className="w-[18px] h-[18px]" />
-        <span className="font-bebas-ui text-lg tracking-wide">
-          @DRINKSOURGOOSE
-        </span>
-      </a>
-    </div>
+            <a
+              href="https://www.tiktok.com/@drinksourgoose"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-lightning-yellow hover:text-white relative z-[10000] pointer-events-auto"
+            >
+              <TikTokIcon className="w-[18px] h-[18px]" />
+              <span className="font-bebas-ui text-lg">@DRINKSOURGOOSE</span>
+            </a>
+          </div>
 
-    {/* ROW 2 — Distillery Link */}
-    <div>
-      <a
-        href="https://deepbluedistilleries.ca"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-lightning-yellow hover:text-white transition-colors relative z-[10000] pointer-events-auto"
-      >
-        <ExternalLink size={16} />
-        <span className="font-bebas-ui text-lg tracking-wide">
-          DEEPBLUEDISTILLERIES.CA
-        </span>
-      </a>
-    </div>
+          {/* DISTILLERY */}
+          <a
+            href="https://deepbluedistilleries.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-lightning-yellow hover:text-white relative z-[10000] pointer-events-auto"
+          >
+            <ExternalLink size={16} />
+            <span className="font-bebas-ui text-lg">
+              DEEPBLUEDISTILLERIES.CA
+            </span>
+          </a>
 
-    {/* Legal */}
-    <div className="text-[14px] text-gray-400 leading-snug">
-      Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
-    </div>
-
-  </div>
-</footer>
+          <div className="text-sm text-gray-400">
+            Proudly crafted in British Columbia. Drink responsibly. Must be 19+. <br /> <br />
+            @ Copyright 2026 - All Rights Reserved. Design by Brazen Bull Creative
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

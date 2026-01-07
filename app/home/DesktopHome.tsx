@@ -408,8 +408,8 @@ ${decryptDone ? "translate-y-[-200px] opacity-100" : "translate-y-0 opacity-100"
 
       <DesktopTikTokGrid />
 
-    {/* FOOTER */}
-    <footer className="bg-black py-12 border-t border-sour-red relative z-10">
+     {/* FOOTER */}
+     <footer className="bg-black py-12 border-t border-sour-red relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
 
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
@@ -445,7 +445,8 @@ ${decryptDone ? "translate-y-[-200px] opacity-100" : "translate-y-0 opacity-100"
           </div>
 
           <div className="text-sm text-gray-400">
-            Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
+            Proudly crafted in British Columbia. Drink responsibly. Must be 19+. <br /> <br />
+            @ Copyright 2026 - All Rights Reserved. Design by Brazen Bull Creative
           </div>
         </div>
       </footer>

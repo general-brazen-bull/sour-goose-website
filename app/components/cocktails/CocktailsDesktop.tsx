@@ -172,7 +172,8 @@ export default function CocktailsDesktop() {
           </div>
 
           <div className="text-sm text-gray-400">
-            Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
+            Proudly crafted in British Columbia. Drink responsibly. Must be 19+. <br /> <br />
+            @ Copyright 2026 - All Rights Reserved. Design by Brazen Bull Creative
           </div>
         </div>
       </footer>
