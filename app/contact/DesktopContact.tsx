@@ -6,252 +6,231 @@ import DecryptedText from "@/components/DecryptedText"
 import SpotlightCard from "@/components/SpotlightCard"
 import LiquidEther from "@/components/LiquidEther"
 import "@/components/LiquidEther.css"
-import ElectricBorder from '@/components/ElectricBorder'
-import StaggeredMenu from "@/components/StaggeredMenu";
+import StaggeredMenu from "@/components/StaggeredMenu"
 
-
-
-import { Mail, Instagram, ExternalLink } from "lucide-react"
+import { Mail, Instagram, MapPin, Clock, Store } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { TikTokIcon } from "@/components/icons/TikTokIcon"
+import { ExternalLink } from "lucide-react"
 
+/* ---------------- BUSINESS STATUS (INLINE) ---------------- */
+function BusinessStatus() {
+  const now = new Date()
+  const day = now.getDay()
+  const hours = now.getHours()
+  const minutes = now.getMinutes()
+  const time = hours + minutes / 60
+
+  const isWeekday = day >= 1 && day <= 5
+  const isOpen = isWeekday && time >= 9.5 && time <= 16.5
+
+  return (
+    <span className={isOpen ? "text-green-500 text-lg" : "text-red-500 text-lg"}>
+      {isOpen ? "We’re open now!" : "We’re currently closed."}
+    </span>
+  )
+}
+
+/* ---------------- NAV ---------------- */
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
-
-  { label: "Raspberry", ariaLabel: "Raspberry flavour", link: "/raspberry" },
-
-  { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour", link: "/salsa-verde" },
-  {
-    label: "Cocktails",
-    ariaLabel: "View cocktail recipes",
-    link: "/cocktails",
-  },
-  
-
-  { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
-
+  { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+  { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
+  { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
+  { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },
   {
     label: "Shop Now",
-    ariaLabel: "Shop Sour Goose",
+    ariaLabel: "Shop Sour Goose online",
     link: "https://deepbluedistilleries.ca/product-tag/sour-goose/",
-    external: true, // 👈 ADD THIS
+    external: true,
     target: "_blank",
-    rel: "noopener noreferrer",
   },
-];
+]
+
 const navSocialItems = [
   { label: "Instagram", link: "https://instagram.com/drinksourgoose" },
   { label: "TikTok", link: "https://www.tiktok.com/@drinksourgoose" },
   { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca" },
-];
+]
 
+/* ---------------- PAGE ---------------- */
 export default function ContactPage() {
   const [decryptDone, setDecryptDone] = useState(false)
-  
+
   return (
     <div className="relative min-h-screen text-white overflow-visible">
-      {/* Liquid Ether Background – put this FIRST so it truly sits behind everything */}
+      {/* BACKGROUND */}
       <div className="fixed inset-0 -z-20 pointer-events-none">
         <LiquidEther
           colors={["#FF0000", "#FF0000", "#8FC81C"]}
-          mouseForce={20}
-          cursorSize={100}
-          isViscous={false}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo={true}
+          autoDemo
           autoSpeed={0.5}
           autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
         />
       </div>
 
-  {/* HEADER BAR (Sour Goose Logo + Menu Button) */}
-<div className="fixed top-0 left-0 w-full z-[99999] flex items-center justify-between px-6 pt-4">
+      {/* HEADER */}
+      <div className="fixed top-0 left-0 w-full z-[99999] flex items-center justify-between px-6 pt-4">
+        <Link href="/" className="relative z-[200000] pointer-events-auto">
+          <img src="/Sour Goose Logo.webp" alt="Sour Goose" className="h-10 w-auto" />
+        </Link>
 
-{/* LEFT — CLICKABLE LOGO */}
-<Link
-  href="/"
-  className="select-none relative z-[200000] pointer-events-auto"
->
-  <img
-    src="/Sour Goose Logo.webp"
-    alt="Sour Goose"
-    className="h-10 w-auto"
-  />
-</Link>
-
-{/* RIGHT — Menu Button */}
-<StaggeredMenu
-  position="right"
-  items={navMenuItems}
-  socialItems={navSocialItems}
-  displaySocials={true}
-  displayItemNumbering={true}
-  menuButtonColor="#ffffff"
-  openMenuButtonColor="#000000"   // close turns black
-  changeMenuColorOnOpen={true}
-  colors={["#FF0000", "#8FC81C"]}
-  accentColor="#FFFF00"
-  disableLogo={true}              // prevent internal menu logo
-  onMenuOpen={() => console.log("Menu opened")}
-  onMenuClose={() => console.log("Menu closed")}
-  className="font-bebas text-lg tracking-wide hover:text-lightning-yellow transition"
-/>
-</div>
+        <StaggeredMenu
+          position="right"
+          items={navMenuItems}
+          socialItems={navSocialItems}
+          displaySocials
+          displayItemNumbering
+          menuButtonColor="#ffffff"
+          openMenuButtonColor="#000000"
+          changeMenuColorOnOpen
+          colors={["#FF0000", "#8FC81C"]}
+          accentColor="#FFFF00"
+          disableLogo
+          className="font-bebas text-lg tracking-wide"
+        />
+      </div>
 
       <GoosePeek />
-{/* HERO */}
-<section className="relative z-10 min-h-[55vh] flex flex-col items-center justify-center text-center px-6">
-  <DecryptedText
-    text="LET'S TALK GOOSE"
-    speed={80}
-    maxIterations={12}
-    sequential
-    revealDirection="start"
-    animateOn="view"
-    className="
-      font-bebas-ui
-      text-[clamp(3.5rem,10vw,6.5rem)]
-      text-lightning-yellow
-      lightning-text
-      tracking-wide
-    "
-    encryptedClassName="
-      font-bebas-ui
-      text-[clamp(3.5rem,10vw,6.5rem)]
-      text-lightning-yellow
-    "
-    onFinish={() => setDecryptDone(true)}
-  />
 
-  <div className="mt-8 max-w-2xl space-y-2">
-    <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-      Got a question? Want to stock us? Or just feeling a little sour?
-    </p>
-    <p className="text-sour-red font-bebas-ui text-xl tracking-wide">
-      Drop us a line — we don’t bite (but our liqueur might).
-    </p>
-  </div>
-</section>
+      {/* HERO */}
+      <section className="relative z-10 min-h-[55vh] flex flex-col items-center justify-center text-center px-6">
+        <DecryptedText
+          text="LET'S TALK GOOSE"
+          speed={80}
+          maxIterations={12}
+          sequential
+          animateOn="view"
+          className="font-bebas-ui text-[clamp(3.5rem,10vw,6.5rem)] text-lightning-yellow lightning-text tracking-wide"
+          encryptedClassName="font-bebas-ui text-[clamp(3.5rem,10vw,6.5rem)] text-lightning-yellow"
+          onFinish={() => setDecryptDone(true)}
+        />
 
+        <div className="mt-8 max-w-2xl space-y-2">
+          <p className="text-lg md:text-xl text-gray-300">
+            Got a question? Want to stock us? Or just feeling a little sour?
+          </p>
+          <p className="text-sour-red font-bebas-ui text-xl tracking-wide">
+            Drop us a line — we don’t bite (but our liqueur might).
+          </p>
+        </div>
+      </section>
 
-      {/* BUSINESS INQUIRIES SECTION */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 text-center mt-12 mb-32">
-      <div className="bg-sour-red/30 p-10 rounded-3xl border border-sour-red shadow-xl">
-          <h3 className="font-bebas-ui text-4xl md:text-5xl text-white tracking-wide mb-6">
-            BUSINESS INQUIRIES
-          </h3>
+      {/* VISIT OUR DISTILLERY */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 mt-32 mb-40 grid md:grid-cols-2 gap-16 items-stretch">
+        {/* INFO */}
+        <div className="bg-black/60 border border-sour-red/40 rounded-3xl p-10 min-h-[400px] flex flex-col justify-between">
+          <div className="space-y-4">
+            <h3 className="font-bebas-ui text-4xl text-lightning-yellow tracking-wide">
+              VISIT OUR DISTILLERY
+            </h3>
 
-          <div className="grid md:grid-cols-2 gap-10 text-black font-avenir text-lg leading-relaxed">
-            <div>
-              <h4 className="font-bebas-ui text-2xl text-white tracking-wide mb-4">
-                WHOLESALE & DISTRIBUTION
-              </h4>
-              <p className="text-white/90">
-                Interested in carrying Sour Goose? We work with retailers, bars, and restaurants who want something bold and different.
+            <p className="text-gray-300">
+              Sour Goose is proudly produced at Deep Blue Distilleries in Richmond, BC.
+            </p>
+
+            <div className="pt-2 space-y-3 text-gray-200">
+              <p className="flex gap-3 items-start">
+                <MapPin className="text-lightning-yellow mt-1" />
+                <span>
+                  5800 Cedarbridge Way #130<br />
+                  Richmond, BC V6X 2A7
+                </span>
+              </p>
+
+              <p className="flex gap-3 items-start">
+                <Clock className="text-lightning-yellow mt-1" />
+                <span>
+                  Mon–Fri: 9:30AM – 4:30PM<br />
+                  Sat & Sun: Closed
+                </span>
               </p>
             </div>
 
-            <div>
-              <h4 className="font-bebas-ui text-2xl text-white tracking-wide mb-4">
-                EVENTS & PARTNERSHIPS
-              </h4>
-              <p className="text-white/90">
-                Looking to feature Sour Goose at your event or collaborate on something exciting? Let's make it happen.
+            <div className="pt-2 space-y-2">
+              <p>
+                Phone:{" "}
+                <a href="tel:+16047675075" className="text-lightning-yellow hover:underline">
+                  +1 (604) 767-5075
+                </a>
               </p>
+
+              <p>
+                Email:{" "}
+                <a href="mailto:info@sourgoose.ca" className="text-lightning-yellow hover:underline">
+                  info@sourgoose.ca
+                </a>
+              </p>
+
+              <div className="pt-4 pb-4"><BusinessStatus /></div>
             </div>
           </div>
-        </div>
-      </section>
-      
-      <div className="mt-24 mb-24 h-px w-32 mx-auto bg-sour-red/60" />
-
-      {/* SPOTLIGHT CARDS */}
-      <section className="
-  relative z-10
-  mt-32
-  px-6
-  max-w-6xl
-  mx-auto
-  grid
-  md:grid-cols-2
-  gap-16
-">
-        {/* Email */}
-        <SpotlightCard
-          spotlightColor="rgba(255,0,0,0.5)"
-          backgroundColor="rgba(255,255,255,0.07)"
-          borderColor="rgba(255,255,255,0.1)"
-          className="group p-12 rounded-3xl flex flex-col items-center"
-        >
-          <Mail className="w-16 h-16 text-lightning-yellow mb-8 transition-colors duration-200 group-hover:text-black" />
-
-          <h3 className="font-bebas-ui text-4xl md:text-5xl text-lightning-yellow tracking-wide mb-4">
-            EMAIL US
-          </h3>
-
-          <p className="text-white font-avenir text-base sm:text-lg max-w-md mx-auto text-center">
-            For inquiries, wholesale opportunities, or distillery visits — we’re always here.
-          </p>
-
-          <a href="mailto:info@sourgoose.ca">
-            <Button className="mt-10 bg-sour-red hover:bg-red-700 text-white font-bebas-ui text-xl px-8 py-3 tracking-wide">
-              INFO@SOURGOOSE.CA
-            </Button>
-          </a>
-        </SpotlightCard>
-
-        {/* Follow */}
-        <SpotlightCard
-          spotlightColor="rgba(143,200,28,0.5)"
-          backgroundColor="rgba(255,255,255,0.07)"
-          borderColor="rgba(255,255,255,0.1)"
-          className="group p-12 rounded-3xl flex flex-col items-center"
-        >
-          <Instagram className="w-16 h-16 text-lightning-yellow mb-8 transition-colors duration-200 group-hover:text-black" />
-
-          <h3 className="font-bebas-ui text-4xl md:text-5xl text-lightning-yellow tracking-wide mb-4">
-            FOLLOW THE GOOSE
-          </h3>
-
-          <p className="text-white font-avenir text-base sm:text-lg max-w-md mx-auto text-center">
-            Stay updated with news, drops, cocktails, flavour experiments — and Goose attitude.
-          </p>
-
-          <a href="https://instagram.com/drinksourgoose" target="_blank">
-            <Button className="mt-10 bg-sour-red hover:bg-red-700 text-white font-bebas-ui text-xl px-8 py-3 tracking-wide">
-              @DRINKSOURGOOSE
-            </Button>
-          </a>
-        </SpotlightCard>
-      </section>
-
-      {/* DISTILLERY SITE */}
-      <section className="relative z-10 text-center mt-40 mb-32 px-6">
-      <div className="bg-black/60 p-10 rounded-3xl border border-gray-700 max-w-3xl mx-auto">
-          <ExternalLink className="w-14 h-14 text-lightning-yellow mx-auto mb-4" />
-
-          <h3 className="font-bebas-ui text-3xl md:text-4xl text-white tracking-wide mb-2">
-            VISIT OUR DISTILLERY SITE
-          </h3>
 
           <a
-            href="https://deepbluedistilleries.ca"
+            href="https://www.google.com/maps/dir/?api=1&destination=5800+Cedarbridge+Way+%23130,+Richmond,+BC+V6X+2A7"
             target="_blank"
-            className="font-bebas-ui text-2xl md:text-3xl text-lightning-yellow hover:text-white tracking-wide hover-lightning"
+            rel="noopener noreferrer"
+            className="mt-6 uppercase tracking-wide border border-lightning-yellow text-lightning-yellow px-6 py-3 hover:bg-sour-red hover:text-white transition w-fit"
           >
-            DEEPBLUEDISTILLERIES.CA
+            Get Directions
           </a>
+        </div>
+
+        {/* MAP */}
+        <div className="bg-black/60 border border-sour-red/40 rounded-3xl overflow-hidden min-h-[400px]">
+          <iframe
+            src="https://www.google.com/maps?q=5800+Cedarbridge+Way+%23130,+Richmond,+BC&output=embed"
+            className="w-full h-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Deep Blue Distilleries Map"
+          />
         </div>
       </section>
 
+      {/* EMAIL + FOLLOW */}
+      <section className="relative z-10 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+        <SpotlightCard className="group p-12 rounded-3xl flex flex-col items-center">
+          <Mail className="w-16 h-16 mb-8 text-lightning-yellow transition-colors group-hover:text-sour-red" />
+          <h3 className="font-bebas-ui text-4xl text-lightning-yellow mb-4">EMAIL US</h3>
+          <Button className="mt-6 bg-sour-red text-white font-bebas-ui text-xl px-8 py-3">
+            INFO@SOURGOOSE.CA
+          </Button>
+        </SpotlightCard>
+
+        <SpotlightCard className="group p-12 rounded-3xl flex flex-col items-center">
+          <Instagram className="w-16 h-16 mb-8 text-lightning-yellow transition-colors group-hover:text-sour-red" />
+          <h3 className="font-bebas-ui text-4xl text-lightning-yellow mb-4">
+            FOLLOW THE GOOSE
+          </h3>
+          <Button className="mt-6 bg-sour-red text-white font-bebas-ui text-xl px-8 py-3">
+            @DRINKSOURGOOSE
+          </Button>
+        </SpotlightCard>
+      </section>
+
+      {/* BUSINESS ENQUIRIES */}
+      <section className="relative z-10 px-6 max-w-4xl mx-auto mt-32 mb-40">
+        <SpotlightCard className="group p-14 rounded-3xl flex flex-col items-center text-center">
+          <Store className="w-16 h-16 mb-8 text-lightning-yellow transition-colors group-hover:text-sour-red" />
+
+          <h3 className="font-bebas-ui text-4xl md:text-5xl text-lightning-yellow tracking-wide mb-6">
+            BUSINESS ENQUIRIES
+          </h3>
+
+          <p className="text-white/90 font-avenir text-lg max-w-2xl">
+            Wholesale, distribution, events, partnerships, or stocking Sour Goose —
+            let’s talk.
+          </p>
+
+          <a href="mailto:orders@deepbluedistilleries.ca">
+            <Button className="mt-10 bg-sour-red hover:bg-red-700 text-white font-bebas-ui text-xl px-10 py-4 tracking-wide">
+              ORDERS@DEEPBLUEDISTILLERIES.CA
+            </Button>
+          </a>
+        </SpotlightCard>
+      </section>
       {/* FOOTER */}
       <footer className="bg-black py-12 border-t border-sour-red relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
