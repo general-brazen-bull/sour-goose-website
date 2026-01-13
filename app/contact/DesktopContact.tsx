@@ -38,6 +38,7 @@ const navMenuItems = [
   { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
   { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
+  { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
   { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },
   {
     label: "Shop Now",
@@ -47,6 +48,7 @@ const navMenuItems = [
     target: "_blank",
   },
 ]
+
 
 const navSocialItems = [
   { label: "Instagram", link: "https://instagram.com/drinksourgoose" },

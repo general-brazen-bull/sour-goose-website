@@ -14,19 +14,20 @@ import DesktopNav from "@/components/DesktopNav";
 
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
-  { label: "Raspberry", ariaLabel: "Raspberry flavour", link: "/raspberry" },
-  { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour", link: "/salsa-verde" },
+  { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+  { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
   { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
-  { label: "Contact", ariaLabel: "Contact us", link: "/contact" },
+  { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
+  { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },
   {
     label: "Shop Now",
-    ariaLabel: "Shop Sour Goose",
+    ariaLabel: "Shop Sour Goose online",
     link: "https://deepbluedistilleries.ca/product-tag/sour-goose/",
-    external: true, // 👈 ADD THIS
+    external: true,
     target: "_blank",
-    rel: "noopener noreferrer",
   },
-];
+]
+
 
 const navSocialItems = [
   { label: "Instagram", link: "https://instagram.com/drinksourgoose", target: "_blank",

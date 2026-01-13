@@ -96,7 +96,7 @@ importers:
         specifier: ^10.7.7
         version: 10.7.7(@react-three/fiber@9.4.2(@types/react@19.2.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(three@0.167.1))(@types/react@19.2.7)(@types/three@0.182.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(three@0.167.1)
       '@react-three/fiber':
-        specifier: ^9.4.2
+        specifier: ^9.3.0
         version: 9.4.2(@types/react@19.2.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(three@0.167.1)
       '@vercel/analytics':
         specifier: ^1.5.0
@@ -192,6 +192,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.2.3(@types/react@19.2.7)
+      '@types/three':
+        specifier: ^0.182.0
+        version: 0.182.0
       postcss:
         specifier: ^8.5
         version: 8.5.6
