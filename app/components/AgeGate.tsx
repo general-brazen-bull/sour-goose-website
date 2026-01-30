@@ -62,14 +62,15 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
         {/* Big Responsive Logo */}
         <div className="mb-12 w-full flex justify-center px-4">
           <div className="w-full max-w-[800px]">
-            <Image
-              src="/Sour Goose Logo.webp"
-              alt="Sour Goose Logo"
-              width={800}
-              height={200}
-              className="object-contain w-full h-auto mx-auto glow-logo"
-              priority
-            />
+          <Image
+  src="/Sour Goose Logo.webp"
+  alt="Sour Goose Logo"
+  width={581}
+  height={134}
+  priority
+  sizes="(max-width: 768px) 90vw, 600px"
+  className="mx-auto object-contain"
+ />
           </div>
         </div>
 
