@@ -57,6 +57,7 @@ export default function RootLayout({
       <body className="bg-black text-white overflow-x-hidden">
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
