@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DesktopHome from "./home/DesktopHome";
-import MobileHome from "./home/MobileHome";
+import DesktopHome from "./components/DesktopHome";
+import MobileHome from "./components/MobileHome";
 
 export default function HomePageRouter() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);

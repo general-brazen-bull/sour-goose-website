@@ -10,7 +10,7 @@ import DecryptedText from "@/components/DecryptedText";
 import ScrollReveal from "@/components/ScrollReveal";
 import Beams from "@/components/Beams";
 import { motion } from "framer-motion";
-import MarqueeSection from "../../components/MarqueeSection";
+import MarqueeSection from "../../../components/MarqueeSection";
 import ElectricBorder from '@/components/ElectricBorder'
 
 

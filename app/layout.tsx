@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Bebas_Neue } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Load fonts with CSS variables
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })

@@ -2,23 +2,23 @@
 
 import { useState, useEffect, useRef } from "react";
 
-import AgeGate from "../components/AgeGate";
-import { Button } from "../../components/ui/button";
+import AgeGate from "../../../components/AgeGate";
+import { Button } from "../../../components/ui/button";
 import { Instagram, ExternalLink, ChevronUp } from "lucide-react";
-import { TikTokIcon } from "../../components/icons/TikTokIcon";
+import { TikTokIcon } from "../../../components/icons/TikTokIcon";
 import Link from "next/link";
 
-import LiquidEther from "../../components/LiquidEther";
+import LiquidEther from "../../../components/LiquidEther";
 import "../../components/LiquidEther.css";
 
-import DecryptedText from "../../components/DecryptedText";
-import GoosePeek from "../../components/GoosePeek";
-import SpotlightCard from "../../components/SpotlightCard";
-import FuzzyText from "../../components/FuzzyText";
-import ScrollReveal from "../../components/ScrollReveal";
-import StaggeredMenu from "../../components/StaggeredMenu";
-import MarqueeSection from "../../components/MarqueeSection";
-import BackToTop from "../../components/BackToTop";
+import DecryptedText from "../../../components/DecryptedText";
+import GoosePeek from "../../../components/GoosePeek";
+import SpotlightCard from "../../../components/SpotlightCard";
+import FuzzyText from "../../../components/FuzzyText";
+import ScrollReveal from "../../../components/ScrollReveal";
+import StaggeredMenu from "../../../components/StaggeredMenu";
+import MarqueeSection from "../../../components/MarqueeSection";
+import BackToTop from "../../../components/BackToTop";
 import LightPillar from '@/components/LightPillar';
 import DesktopTikTokGrid from "@/components/DesktopTikTokGrid";
 

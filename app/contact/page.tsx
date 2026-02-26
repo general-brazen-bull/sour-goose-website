@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import DesktopContact from "./DesktopContact"
-import MobileContact from "./MobileContact"
+import DesktopContact from "./components/DesktopContact"
+import MobileContact from "./components/MobileContact"
 
 export default function ContactPage() {
   const [isMobile, setIsMobile] = useState(false)

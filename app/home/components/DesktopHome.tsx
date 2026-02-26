@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import AgeGate from "../components/AgeGate";
+import AgeGate from "../../../components/AgeGate";
 import { Button } from "@/components/ui/button";
 import { Instagram, ExternalLink } from "lucide-react";
 import { TikTokIcon } from "@/components/icons/TikTokIcon";

@@ -1,5 +1,5 @@
-import CocktailsDesktop from "../components/cocktails/CocktailsDesktop";
-import CocktailsMobile from "../components/cocktails/CocktailsMobile";
+import CocktailsDesktop from "./components/CocktailsDesktop";
+import CocktailsMobile from "./components/CocktailsMobile";
 
 export default function CocktailsPage() {
   return (

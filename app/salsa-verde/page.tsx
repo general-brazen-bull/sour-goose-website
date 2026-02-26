@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DesktopSalsaVerde from "./DesktopSalsa";
-import MobileSalsaVerde from "./MobileSalsa";
+import DesktopSalsaVerde from "./components/DesktopSalsa";
+import MobileSalsaVerde from "./components/MobileSalsa";
 
 export default function SalsaVerdePage() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);

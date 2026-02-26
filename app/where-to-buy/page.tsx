@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import DesktopWhereToBuy from "../where-to-buy/DesktopWhereToBuy"
-import MobileWhereToBuy from "../where-to-buy/MobileWhereToBuy"
+import DesktopWhereToBuy from "./components/DesktopWhereToBuy"
+import MobileWhereToBuy from "./components/MobileWhereToBuy"
 
 export default function WhereToBuyPage() {
   const [isMobile, setIsMobile] = useState(false)

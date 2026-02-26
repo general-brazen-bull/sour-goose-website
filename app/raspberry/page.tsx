@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DesktopRaspberry from "./DesktopRaspberry";
-import MobileRaspberry from "./MobileRaspberry";
+import DesktopRaspberry from "./components/DesktopRaspberry";
+import MobileRaspberry from "./components/MobileRaspberry";
 
 export default function RaspberryPage() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
