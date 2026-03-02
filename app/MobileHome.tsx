@@ -2,25 +2,25 @@
 
 import { useState, useEffect, useRef } from "react";
 
-import AgeGate from "../../../components/AgeGate";
-import { Button } from "../../../components/ui/button";
+import AgeGate from "../components/AgeGate";
+import { Button } from "../components/ui/button";
 import { Instagram, ExternalLink, ChevronUp } from "lucide-react";
-import { TikTokIcon } from "../../../components/icons/TikTokIcon";
+import { TikTokIcon } from "../components/icons/TikTokIcon";
 import Link from "next/link";
 
-import LiquidEther from "../../../components/LiquidEther";
-import "../../components/LiquidEther.css";
+import LiquidEther from "@/app/animations/LiquidEther";
+import "@/app/animations/LiquidEther.css";
 
-import DecryptedText from "../../../components/DecryptedText";
-import GoosePeek from "../../../components/GoosePeek";
-import SpotlightCard from "../../../components/SpotlightCard";
-import FuzzyText from "../../../components/FuzzyText";
-import ScrollReveal from "../../../components/ScrollReveal";
-import StaggeredMenu from "../../../components/StaggeredMenu";
-import MarqueeSection from "../../../components/MarqueeSection";
-import BackToTop from "../../../components/BackToTop";
-import LightPillar from '@/components/LightPillar';
-import DesktopTikTokGrid from "@/components/DesktopTikTokGrid";
+import DecryptedText from "@/app/animations/DecryptedText";
+import GoosePeek from "@/app/animations/GoosePeek";
+import SpotlightCard from "@/app/animations/SpotlightCard";
+import FuzzyText from "@/app/animations/FuzzyText";
+import ScrollReveal from "@/app/animations/ScrollReveal";
+import StaggeredMenu from "@/app/animations/StaggeredMenu";
+import MarqueeSection from "@/app/animations/MarqueeSection";
+import BackToTop from "../components/BackToTop";
+import LightPillar from '@/app/animations/LightPillar';
+import DesktopTikTokGrid from "@/app/animations/DesktopTikTokGrid";
 
 
 
@@ -179,7 +179,9 @@ const scrollToTop = () => {
   const navMenuItems = [
     { label: "Home", ariaLabel: "Go to home page", link: "/" },
     { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+    { label: "Green Apple", ariaLabel: "Green Apple flavour page", link: "/green-apple" },
     { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
+    { label: "Curasour", ariaLabel: "Curasour flavour page", link: "/curasour" },
     { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
     { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
     { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },

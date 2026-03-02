@@ -1,7 +1,7 @@
 "use client";
 
-import DecryptedText from "@/components/DecryptedText";
-import StaggeredMenu from "@/components/StaggeredMenu";
+import DecryptedText from "@/app/animations/DecryptedText";
+import StaggeredMenu from "@/app/animations/StaggeredMenu";
 import Image from "next/image";
 import { Instagram, ExternalLink } from "lucide-react";
 import Link from "next/link";
@@ -10,7 +10,9 @@ import { TikTokIcon } from "@/components/icons/TikTokIcon";
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+  { label: "Green Apple", ariaLabel: "Green Apple flavour page", link: "/green-apple" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
+  { label: "Curasour", ariaLabel: "Curasour flavour page", link: "/curasour" },
   { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
   { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
   { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },

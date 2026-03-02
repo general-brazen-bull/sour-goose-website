@@ -1,32 +1,34 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import AgeGate from "../../../components/AgeGate";
+import AgeGate from "../components/AgeGate";
 import { Button } from "@/components/ui/button";
 import { Instagram, ExternalLink } from "lucide-react";
 import { TikTokIcon } from "@/components/icons/TikTokIcon";
 import Link from "next/link";
 
-import LiquidEther from "@/components/LiquidEther";
-import "@/components/LiquidEther.css";
+import LiquidEther from "@/app/animations/LiquidEther";
+import "@/app/animations/LiquidEther.css";
 
-import DecryptedText from "@/components/DecryptedText";
-import GoosePeek from "@/components/GoosePeek";
-import SpotlightCard from "@/components/SpotlightCard";
-import FlowingMenu from "@/components/FlowingMenu";
-import FuzzyText from "@/components/FuzzyText";
-import ElectricBorder from '@/components/ElectricBorder'
-import type { MenuItemProps } from "@/components/FlowingMenu";
-import StaggeredMenu from "@/components/StaggeredMenu";
-import ScrollReveal from '@/components/ScrollReveal';
-import DesktopTikTokGrid from "@/components/DesktopTikTokGrid";
+import DecryptedText from "@/app/animations/DecryptedText";
+import GoosePeek from "@/app/animations/GoosePeek";
+import SpotlightCard from "@/app/animations/SpotlightCard";
+import FlowingMenu from "@/app/animations/FlowingMenu";
+import FuzzyText from "@/app/animations/FuzzyText";
+import ElectricBorder from '@/app/animations/ElectricBorder'
+import type { MenuItemProps } from "@/app/animations/FlowingMenu";
+import StaggeredMenu from "@/app/animations/StaggeredMenu";
+import ScrollReveal from '@/app/animations/ScrollReveal';
+import DesktopTikTokGrid from "@/app/animations/DesktopTikTokGrid";
 
 
 
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+  { label: "Green Apple", ariaLabel: "Green Apple flavour page", link: "/green-apple" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
+  { label: "Curasour", ariaLabel: "Curasour flavour page", link: "/curasour" },
   { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
   { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
   { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },
@@ -372,6 +374,29 @@ ${decryptDone ? "translate-y-[-200px] opacity-100" : "translate-y-0 opacity-100"
         </SpotlightCard>
 
         <SpotlightCard
+          spotlightColor="rgba(223,242,0,0.5)"
+          backgroundColor="rgba(255,255,255,0.07)"
+          borderColor="2.5px solid rgba(223,242,0,0.35)"
+          className="p-12 rounded-3xl flex flex-col items-center"
+        >
+          <img
+            src="/applebottle.png"
+            className="mx-auto w-80 sm:w-96 md:w-[26rem] mb-10"
+            alt="Sour Goose Green Apple"
+          />
+          <h3 className="font-bebas text-6xl md:text-7xl text-[#dff200] tracking-wide">
+            GREEN APPLE
+          </h3>
+          <p className="text-white mt-4 text-base sm:text-lg font-avenir max-w-md mx-auto">
+          Crisp Punch Up Front. Smooth, Light Sweet Finish.         </p>
+          <Link href="/green-apple">
+            <Button className="mt-10 bg-[#dff200] hover:bg-green-600 text-2xl font-bebas px-10 py-4">
+              LEARN MORE
+            </Button>
+          </Link>
+        </SpotlightCard>
+
+        <SpotlightCard
           spotlightColor="rgba(143,200,28,0.5)"
           backgroundColor="rgba(255,255,255,0.07)"
           borderColor="2.5px solid rgba(143,200,28,0.35)"
@@ -390,6 +415,30 @@ ${decryptDone ? "translate-y-[-200px] opacity-100" : "translate-y-0 opacity-100"
           </p>
           <Link href="/salsa-verde">
             <Button className="mt-10 bg-[#8FC81C] hover:bg-green-600 text-2xl font-bebas px-10 py-4">
+              LEARN MORE
+            </Button>
+          </Link>
+        </SpotlightCard>
+
+        <SpotlightCard
+          spotlightColor="rgba(0,135,206,0.5)"
+          backgroundColor="rgba(255,255,255,0.07)"
+          borderColor="2.5px solid rgba(0,135,206,0.35)"
+          className="p-12 rounded-3xl flex flex-col items-center"
+        >
+          <img
+            src="/curasourbottle.png"
+            className="mx-auto w-80 sm:w-96 md:w-[26rem] mb-10"
+            alt="Sour Goose Curasour"
+          />
+          <h3 className="font-bebas text-6xl md:text-7xl text-[#0087ce] tracking-wide">
+            CURASOUR
+          </h3>
+          <p className="text-white mt-4 text-base sm:text-lg font-avenir max-w-md mx-auto">
+          Zesty. Electric. A Blast of Blue Citrus Bite.
+          </p>
+          <Link href="/curasour">
+            <Button className="mt-10 bg-[#0087ce] hover:bg-blue-700 text-2xl font-bebas px-10 py-4">
               LEARN MORE
             </Button>
           </Link>

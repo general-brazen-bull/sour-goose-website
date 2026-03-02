@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import StaggeredMenu from "@/components/StaggeredMenu";
+import StaggeredMenu from "@/app/animations/StaggeredMenu";
 
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },

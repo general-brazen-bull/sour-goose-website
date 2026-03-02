@@ -1,10 +1,10 @@
 "use client"
 
-import GoosePeek from "@/components/GoosePeek"
-import DecryptedText from "@/components/DecryptedText"
-import StaggeredMenu from "@/components/StaggeredMenu"
-import SpotlightCard from "@/components/SpotlightCard"
-import FloatingLines from "@/components/FloatingLines"
+import GoosePeek from "@/app/animations/GoosePeek"
+import DecryptedText from "@/app/animations/DecryptedText"
+import StaggeredMenu from "@/app/animations/StaggeredMenu"
+import SpotlightCard from "@/app/animations/SpotlightCard"
+import FloatingLines from "@/app/animations/FloatingLines"
 
 import { Store, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -34,7 +34,9 @@ function BusinessStatus() {
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+  { label: "Green Apple", ariaLabel: "Green Apple flavour page", link: "/green-apple" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
+  { label: "Curasour", ariaLabel: "Curasour flavour page", link: "/curasour" },
   { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
   { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
   { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },

@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import GoosePeek from "@/components/GoosePeek"
-import DecryptedText from "@/components/DecryptedText"
-import SpotlightCard from "@/components/SpotlightCard"
-import LiquidEther from "@/components/LiquidEther"
-import "@/components/LiquidEther.css"
-import StaggeredMenu from "@/components/StaggeredMenu"
+import GoosePeek from "@/app/animations/GoosePeek"
+import DecryptedText from "@/app/animations/DecryptedText"
+import SpotlightCard from "@/app/animations/SpotlightCard"
+import LiquidEther from "@/app/animations/LiquidEther"
+import "@/app/animations/LiquidEther.css"
+import StaggeredMenu from "@/app/animations/StaggeredMenu"
 
 import { Mail, Instagram, MapPin, Clock, Store } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -36,7 +36,9 @@ function BusinessStatus() {
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+  { label: "Green Apple", ariaLabel: "Green Apple flavour page", link: "/green-apple" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
+  { label: "Curasour", ariaLabel: "Curasour flavour page", link: "/curasour" },
   { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
   { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
   { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },

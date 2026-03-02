@@ -38,7 +38,7 @@ const navSocialItems = [
   { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca" },
 ];
 
-export default function RaspberryPage() {
+export default function GreenApplePage() {
   const [decryptDone, setDecryptDone] = useState(false);
 
   useEffect(() => {
@@ -92,7 +92,7 @@ export default function RaspberryPage() {
             beamWidth={2}
             beamHeight={14}
             beamNumber={10}
-            lightColor="#FF0000"
+            lightColor="#dff200"
             speed={1.6}
             noiseIntensity={2}
             scale={0.28}
@@ -116,21 +116,21 @@ export default function RaspberryPage() {
           />
 
           <DecryptedText
-            text="RASPBERRY"
+            text="GREEN APPLE"
             speed={120}
             maxIterations={14}
             sequential
             revealDirection="start"
             animateOn="view"
             onFinish={() => {}}
-            className="font-bebas text-[#FF0000] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
-            encryptedClassName="font-bebas text-[#FF0000] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
+            className="font-bebas text-[#dff200] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
+            encryptedClassName="font-bebas text-[#dff200] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
           />
 
           {/* BOTTLE */}
           <motion.img
-            src="/bottle.webp"
-            alt="Sour Goose Raspberry"
+            src="/applebottle.png"
+            alt="Sour Goose Green Apple"
             initial={{ x: 160, rotate: -45, opacity: 0 }}
             animate={{ x: 0, rotate: -45, opacity: 1 }}
             transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
@@ -148,8 +148,7 @@ export default function RaspberryPage() {
 
           {/* SUBTEXT */}
           <p className="font-bebas text-[#FFFF00] tracking-wide text-[clamp(2.2rem,4.5vw,2rem)] leading-tight -mt-28 mb-8 max-w-sm">
-            TART. JUICY. A STRAIGHT PUNCH OF RASPBERRY CHAOS.
-          </p>
+          CRISP PUNCH UP FRONT. SMOOTH, LIGHT SWEET FINISH.          </p>
 
           {/* ✅ BUY NOW (REAL LINK, NO JS) */}
           <a
@@ -161,7 +160,7 @@ export default function RaspberryPage() {
             <span
               className="
                 w-[50vw]
-                bg-[#FFFF00]
+                bg-[#dff200]
                 text-black
                 font-bebas
                 text-2xl
@@ -184,8 +183,8 @@ export default function RaspberryPage() {
 
       {/* MARQUEE SEAM */}
       <div className="relative z-20 pt-16">
-        <div className="marquee-wrap marquee-tight raspberry-marquee">
-          <MarqueeSection text="The new goose in town • Zesty • Sour • Unapologetic • " />
+        <div className="marquee-wrap marquee-tight green-apple-marquee">
+          <MarqueeSection text="Green Apple with an Edge • Sour Done Right • Crisp & Bright • " />
         </div>
       </div>
 
@@ -197,19 +196,19 @@ export default function RaspberryPage() {
           style={{ backgroundImage: "url('/noise.png')" }}
         />
         <div className="absolute top-[10%] left-1/2 -translate-x-1/2 -z-10 pointer-events-none">
-          <div className="w-[1200px] h-[1200px] bg-red-600/10 blur-[260px]" />
+          <div className="w-[1200px] h-[1200px] bg-[#dff200]/20 blur-[260px]" />
         </div>
 
         {/* FLAVOUR DESCRIPTION */}
         <section className="w-full py-20 px-6">
           <div className="max-w-4xl mx-auto text-center text-gray-200 text-lg md:text-xl leading-relaxed space-y-10">
             <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-              Sour Goose Raspberry is the original burst of bold, bright energy. It hits with a punchy raspberry tang — vibrant, lively, and instantly expressive.
-            </ScrollReveal>
+            Sour Goose Sour Apple delivers a crisp green apple punch right up front, followed by a smooth, lightly sweet finish that keeps the flavour balanced and easy to drink.
+            It captures that classic sour candy intensity -sharp, juicy, and refreshing, without becoming overpowering.            </ScrollReveal>
 
             <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-              Juicy, sharp, and refreshingly electric, it’s built for cocktails that need personality and real fruit brightness.
-            </ScrollReveal>
+            Clean on the palate and vibrant in colour, it’s designed to stand out whether you’re pouring shots or building high-energy cocktails.
+            The tartness wakes up your taste buds, while the subtle sweetness rounds it out for a smooth finish.            </ScrollReveal>
           </div>
         </section>
 
@@ -217,26 +216,26 @@ export default function RaspberryPage() {
         <section className="w-full py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <ElectricBorder
-              color="#FF0000"
+              color="#dff200"
               speed={1.2}
               chaos={0.6}
               thickness={2}
               style={{ borderRadius: 20 }}
             >
               <div className="bg-black/70 backdrop-blur-md rounded-[18px] px-8 py-12">
-                <h2 className="font-bebas text-5xl text-[#FF0000] tracking-wide mb-10 text-center">
+                <h2 className="font-bebas text-5xl text-[#dff200] tracking-wide mb-10 text-center">
                   TASTING NOTES
                 </h2>
 
                 <div className="space-y-6 text-lg md:text-xl text-gray-200">
                   {[
-                    ["AROMA", "Fresh raspberry lift with a clean tang"],
-                    ["PALATE", "Bold raspberry brightness"],
-                    ["FINISH", "Crisp, expressive, refreshing"],
-                    ["MIXABILITY", "Perfect in sours, spritzes, and highballs"],
+                    ["AROMA", "Crisp green apple freshness with a subtle sweet edge"],
+                    ["PALATE", "Bold green apple brightness"],
+                    ["FINISH", "Crisp, juicy, and refreshingly smooth"],
+                    ["MIXABILITY", "Perfect in margaritas, Caesars, and highballs"],
                   ].map(([label, text]) => (
                     <div key={label} className="flex flex-col sm:flex-row sm:justify-between gap-2">
-                      <span className="font-bebas text-[#FF0000] text-2xl tracking-wide">{label}</span>
+                      <span className="font-bebas text-[#dff200] text-2xl tracking-wide">{label}</span>
                       <span className="sm:text-right max-w-xl">{text}</span>
                     </div>
                   ))}

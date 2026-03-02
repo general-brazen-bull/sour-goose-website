@@ -3,20 +3,22 @@
 import { useState, useEffect } from "react";
 import { Instagram, ExternalLink } from "lucide-react";
 import { TikTokIcon } from "@/components/icons/TikTokIcon";
-import GoosePeek from "@/components/GoosePeek";
-import StaggeredMenu from "@/components/StaggeredMenu";
+import GoosePeek from "@/app/animations/GoosePeek";
+import StaggeredMenu from "@/app/animations/StaggeredMenu";
 import Link from "next/link";
-import DecryptedText from "@/components/DecryptedText";
-import ScrollReveal from "@/components/ScrollReveal";
-import Beams from "@/components/Beams";
+import DecryptedText from "@/app/animations/DecryptedText";
+import ScrollReveal from "@/app/animations/ScrollReveal";
+import Beams from "@/app/animations/Beams";
 import { motion } from "framer-motion";
-import MarqueeSection from "../../../components/MarqueeSection";
-import ElectricBorder from "@/components/ElectricBorder";
+import MarqueeSection from "@/app/animations/MarqueeSection";
+import ElectricBorder from "@/app/animations/ElectricBorder";
 
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "Raspberry", ariaLabel: "Raspberry flavour page", link: "/raspberry" },
+  { label: "Green Apple", ariaLabel: "Green Apple flavour page", link: "/green-apple" },
   { label: "Salsa Verde", ariaLabel: "Salsa Verde flavour page", link: "/salsa-verde" },
+  { label: "Curasour", ariaLabel: "Curasour flavour page", link: "/curasour" },
   { label: "Cocktails", ariaLabel: "View cocktail recipes", link: "/cocktails" },
   { label: "Where to Buy", ariaLabel: "Find where to buy Sour Goose", link: "/where-to-buy" },
   { label: "Contact", ariaLabel: "Contact Sour Goose", link: "/contact" },

@@ -494,3 +494,22 @@ button {
     padding-bottom: 1.5rem;
   }
 }
+
+.sm-panel-heading {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #FF0000;
+  margin: 1.2rem 0 0.4rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sm-sub-item {
+  font-size: 2.5rem;
+  padding-left: 1rem;
+}
+
+.sm-sub-itemWrap {
+  overflow: hidden;
+}

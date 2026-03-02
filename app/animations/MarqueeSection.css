@@ -117,3 +117,42 @@
 .marquee-bottom {
   margin-bottom: 4rem;
 }
+
+/* ============================================================
+   GREEN APPLE MARQUEE OVERRIDE
+============================================================ */
+
+.green-apple-marquee .marquee-section {
+  background: #dff200;
+}
+
+.green-apple-marquee .marquee-inner span {
+  color: #000;
+}
+
+.green-apple-marquee .marquee-inner,
+.green-apple-marquee .marquee-inner.right {
+  animation-duration: 80s;
+}
+
+.salsa-marquee .marquee-inner,
+.salsa-marquee .marquee-inner.right {
+  animation: marquee-left 80s linear infinite;
+}
+
+/* ============================================================
+   CURASOUR MARQUEE
+============================================================ */
+
+.curasour-marquee .marquee-section {
+  background: #0087ce;
+}
+
+.curasour-marquee .marquee-inner span {
+  color: #000; /* white text for contrast */
+}
+
+.curasour-marquee .marquee-inner,
+.curasour-marquee .marquee-inner.right {
+  animation: marquee-left 80s linear infinite;
+}

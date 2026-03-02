@@ -40,7 +40,7 @@ const navSocialItems = [
   { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca" },
 ];
 
-export default function RaspberryPage() {
+export default function GreenApplePage() {
   const [decryptDone, setDecryptDone] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
@@ -92,7 +92,7 @@ export default function RaspberryPage() {
     beamWidth={2.5}
     beamHeight={15}
     beamNumber={12}
-    lightColor="#ff0000"
+    lightColor="#dff200"
     speed={2}
     noiseIntensity={3}
     scale={0.25}
@@ -105,8 +105,7 @@ export default function RaspberryPage() {
   <div className="grid grid-cols-2 gap-8 items-center h-full">
 
     {/* LEFT */}
-    <div className="flex flex-col items-start pb-40 pl-72 w-[50rem]">
-
+    <div className="flex flex-col items-start pb-40 pl-72 w-[65rem]">
       {/* SOUR GOOSE */}
       <DecryptedText
         text="SOUR GOOSE"
@@ -116,21 +115,20 @@ export default function RaspberryPage() {
         revealDirection="start"
         animateOn="view"
         onFinish={() => setDecryptDone(true)}
-        className="font-bebas text-white tracking-wide text-[clamp(5rem,6vw,8rem)] leading-none mb-4"
+        className="font-bebas text-white tracking-wide text-[clamp(5rem,6vw,8rem)] leading-none mb-4 "
         encryptedClassName="font-bebas text-white tracking-wide text-[clamp(5rem,6vw,8rem)] leading-none mb-4"
       />
 
-     {/* RASPBERRY */}
+     {/* Green Apple */}
 <div className="group mb-10 pb-10">
   <div
     className="
-      transition-all duration-300 ease-out
+      transition-all duration-100 ease-out
       group-hover:scale-[1.02]
-      group-hover:drop-shadow-[0_0_160px_rgba(255,0,0,1)]
-    "
+group-hover:drop-shadow-[0_0_120px_rgba(223,242,0,0.2)]    "
   >
     <DecryptedText
-      text="RASPBERRY"
+      text="GREEN APPLE"
       speed={120}
       maxIterations={14}
       sequential
@@ -139,17 +137,16 @@ export default function RaspberryPage() {
       onFinish={() => setTimeout(() => setDecryptDone(true), 0)}
       className="
         font-bebas
-        text-[#FF0000]
+        text-[#dff200]
         tracking-wide
         text-[clamp(4.5rem,10vw,9.5rem)]
         leading-none
         transition-all duration-300
-group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_0_40px_rgba(255,0,0,0.5)]
-
+group-hover:[text-shadow:0_0_40px_rgba(223,242,0,0.9),0_0_80px_rgba(223,242,0,0.7),0_0_120px_rgba(223,242,0,0.5)]
       "
       encryptedClassName="
         font-bebas
-        text-[#FF0000]
+        text-[#dff200]
         tracking-wide
         text-[clamp(4.5rem,10vw,9.5rem)]
         leading-none
@@ -163,13 +160,12 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
       {/* SUBTEXT */}
       <p
         className={`
-          font-bebas text-[#FFFF00] tracking-wide text-5xl leading-tight max-w-xl mb-10
+          font-bebas text-[#ffffff] tracking-wide text-5xl leading-tight max-w-xl mb-10
           transition-opacity duration-700
           ${showText ? "opacity-100" : "opacity-0"}
         `}
       >
-        TART. JUICY. A STRAIGHT PUNCH OF RASPBERRY CHAOS.
-      </p>
+CRISP PUNCH UP FRONT. SMOOTH, LIGHT SWEET FINISH.      </p>
 
       {/* CTA */}
       <div
@@ -186,7 +182,7 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
 >
        <button
   className="
-    bg-[#FFFF00] text-black font-bebas text-3xl px-14 py-4 tracking-wide
+    bg-[#dff200] text-black font-bebas text-3xl px-14 py-4 tracking-wide
     transition-all duration-300 ease-out
     hover:-translate-y-1
     hover:scale-[1.03]
@@ -212,8 +208,8 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
   "
 >
   <motion.img
-    src="/bottle.webp"
-    alt="Sour Goose Raspberry"
+    src="/applebottle.png"
+    alt="Sour Goose Green Apple"
     initial={{ x: 300, opacity: 0, scale: 0.98 }}
     animate={{ x: 0, opacity: 1, scale: 1 }}
     transition={{
@@ -241,9 +237,9 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
 
 {/* HERO → CONTENT SEAM */}
 <div className="relative z-20 pt-28">
-<div className="marquee-wrap marquee-tight raspberry-marquee">
+<div className="marquee-wrap marquee-tight green-apple-marquee">
   <MarqueeSection
-    text="The new goose in town • Zesty • Sour • Unapologetic • "
+    text="Green Apple with an Edge • Sour Done Right • Crisp & Bright • "
   />
 </div>
 </div>
@@ -262,24 +258,22 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
     }}
   />
 
-  {/* RED GLOW */}
-  <div className="absolute top-[10%] left-1/2 -translate-x-1/2 -z-10">
-    <div className="w-[1200px] h-[1200px] bg-red-600/10 blur-[260px]" />
-  </div>
+{/* GREEN APPLE GLOW */}
+<div className="absolute top-[10%] left-1/2 -translate-x-1/2 -z-10">
+  <div className="w-[1200px] h-[1200px] bg-[#dff200]/20 blur-[260px]" />
+</div>
 
       {/* ================= FLAVOUR DESCRIPTION ================= */}
       <section className="w-full py-24 px-6">
         <div className="max-w-4xl mx-auto text-center text-gray-200 text-lg md:text-xl leading-relaxed space-y-10">
           <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-            Sour Goose Raspberry is the original burst of bold, bright energy. It
-            hits with a punchy raspberry tang — vibrant, lively, and instantly
-            expressive, capturing everything people love about Sour Goose in its
-            most iconic form.
+          Sour Goose Sour Apple delivers a crisp green apple punch right up front, followed by a smooth, lightly sweet finish that keeps the flavour balanced and easy to drink.
+          It captures that classic sour candy intensity -sharp, juicy, and refreshing, without becoming overpowering.
           </ScrollReveal>
 
           <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-            Juicy, sharp, and refreshingly electric, it’s built for cocktails that
-            need personality and a hit of natural brightness.
+          Clean on the palate and vibrant in colour, it’s designed to stand out whether you’re pouring shots or building high-energy cocktails.
+          The tartness wakes up your taste buds, while the subtle sweetness rounds it out for a smooth finish.
           </ScrollReveal>
         </div>
       </section>
@@ -289,7 +283,7 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
   <div className="max-w-4xl mx-auto">
 
     <ElectricBorder
-      color="#FF0000"
+      color="#dff200"
       speed={1.2}
       chaos={0.6}
       thickness={2}
@@ -297,45 +291,45 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
     >
       <div className="bg-black/70 backdrop-blur-md rounded-[18px] px-10 py-14">
 
-        <h2 className="font-bebas text-5xl md:text-6xl text-[#FF0000] tracking-wide mb-12 text-center">
+        <h2 className="font-bebas text-5xl md:text-6xl text-[#dff200] tracking-wide mb-12 text-center">
           TASTING NOTES
         </h2>
 
         <div className="space-y-6 text-lg md:text-xl text-gray-200">
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#dff200] text-xl md:text-2xl tracking-wide">
               AROMA
             </span>
             <span className="md:text-right max-w-xl">
-              Fresh raspberry lift with a clean tang
+              Fresh green apple brightness with a clean tang
             </span>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#dff200] text-xl md:text-2xl tracking-wide">
               PALATE
             </span>
             <span className="md:text-right max-w-xl">
-              Bold raspberry brightness layered with Sour Goose’s signature vibrant edge
+              Bold green apple brightness layered with Sour Goose’s signature vibrant edge
             </span>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#dff200] text-xl md:text-2xl tracking-wide">
               FINISH
             </span>
             <span className="md:text-right max-w-xl">
-              Crisp, expressive, and refreshing
+              Crisp, juicy, and refreshingly smooth
             </span>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#dff200] text-xl md:text-2xl tracking-wide">
               MIXABILITY
             </span>
             <span className="md:text-right max-w-xl">
-              Perfect in sours, spritzes, highballs, and anything that needs a shot of raspberry intensity
+              Perfect in sours, spritzes, highballs, and anything that needs a shot of green apple intensity
             </span>
           </div>
 
@@ -349,7 +343,7 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
 
 
         {/* FOOTER */}
-      <footer className="bg-black py-12 border-t border-sour-red relative z-10">
+      <footer className="bg-black py-12 border-t border-green-apple relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
 
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">

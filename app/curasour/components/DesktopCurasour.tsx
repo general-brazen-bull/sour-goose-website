@@ -40,7 +40,7 @@ const navSocialItems = [
   { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca" },
 ];
 
-export default function RaspberryPage() {
+export default function CurasourPage() {
   const [decryptDone, setDecryptDone] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
@@ -92,7 +92,7 @@ export default function RaspberryPage() {
     beamWidth={2.5}
     beamHeight={15}
     beamNumber={12}
-    lightColor="#ff0000"
+    lightColor="#0087ce"
     speed={2}
     noiseIntensity={3}
     scale={0.25}
@@ -120,7 +120,7 @@ export default function RaspberryPage() {
         encryptedClassName="font-bebas text-white tracking-wide text-[clamp(5rem,6vw,8rem)] leading-none mb-4"
       />
 
-     {/* RASPBERRY */}
+     {/* CURASOUR */}
 <div className="group mb-10 pb-10">
   <div
     className="
@@ -130,7 +130,7 @@ export default function RaspberryPage() {
     "
   >
     <DecryptedText
-      text="RASPBERRY"
+      text="CURASOUR"
       speed={120}
       maxIterations={14}
       sequential
@@ -139,7 +139,7 @@ export default function RaspberryPage() {
       onFinish={() => setTimeout(() => setDecryptDone(true), 0)}
       className="
         font-bebas
-        text-[#FF0000]
+        text-[#0087ce]
         tracking-wide
         text-[clamp(4.5rem,10vw,9.5rem)]
         leading-none
@@ -149,7 +149,7 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
       "
       encryptedClassName="
         font-bebas
-        text-[#FF0000]
+        text-[#0087ce]
         tracking-wide
         text-[clamp(4.5rem,10vw,9.5rem)]
         leading-none
@@ -168,8 +168,7 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
           ${showText ? "opacity-100" : "opacity-0"}
         `}
       >
-        TART. JUICY. A STRAIGHT PUNCH OF RASPBERRY CHAOS.
-      </p>
+ZESTY. ELECTRIC. A BLAST OF BLUE CITRUS BITE.      </p>
 
       {/* CTA */}
       <div
@@ -212,8 +211,8 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
   "
 >
   <motion.img
-    src="/bottle.webp"
-    alt="Sour Goose Raspberry"
+    src="/curasourbottle.png"
+    alt="Sour Goose Curasour"
     initial={{ x: 300, opacity: 0, scale: 0.98 }}
     animate={{ x: 0, opacity: 1, scale: 1 }}
     transition={{
@@ -241,9 +240,9 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
 
 {/* HERO → CONTENT SEAM */}
 <div className="relative z-20 pt-28">
-<div className="marquee-wrap marquee-tight raspberry-marquee">
+<div className="marquee-wrap marquee-tight curasour-marquee">
   <MarqueeSection
-    text="The new goose in town • Zesty • Sour • Unapologetic • "
+    text="The New Curacao In Town • Bright • A Shockwave of Blue Orange• "
   />
 </div>
 </div>
@@ -262,24 +261,22 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
     }}
   />
 
-  {/* RED GLOW */}
-  <div className="absolute top-[10%] left-1/2 -translate-x-1/2 -z-10">
-    <div className="w-[1200px] h-[1200px] bg-red-600/10 blur-[260px]" />
-  </div>
+  {/* BLUE GLOW */}
+<div className="absolute top-[10%] left-1/2 -translate-x-1/2 -z-10">
+  <div className="w-[1200px] h-[1200px] bg-[#0087ce]/25 blur-[260px]" />
+</div>
 
       {/* ================= FLAVOUR DESCRIPTION ================= */}
       <section className="w-full py-24 px-6">
         <div className="max-w-4xl mx-auto text-center text-gray-200 text-lg md:text-xl leading-relaxed space-y-10">
           <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-            Sour Goose Raspberry is the original burst of bold, bright energy. It
-            hits with a punchy raspberry tang — vibrant, lively, and instantly
-            expressive, capturing everything people love about Sour Goose in its
-            most iconic form.
+          Curasour delivers the classic blue curaçao-style profile with balanced sweetness and vibrant citrus clarity.
+          It brings eye-catching colour and reliable orange-forward flavour to any cocktail, making it an easy staple behind the bar.
           </ScrollReveal>
 
           <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-            Juicy, sharp, and refreshingly electric, it’s built for cocktails that
-            need personality and a hit of natural brightness.
+          Whether you’re building tropical drinks or adding a citrus accent to a classic,
+          Curasour keeps it bright, smooth, and easy to mix.
           </ScrollReveal>
         </div>
       </section>
@@ -289,7 +286,7 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
   <div className="max-w-4xl mx-auto">
 
     <ElectricBorder
-      color="#FF0000"
+      color="#0087ce"
       speed={1.2}
       chaos={0.6}
       thickness={2}
@@ -297,46 +294,42 @@ group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_
     >
       <div className="bg-black/70 backdrop-blur-md rounded-[18px] px-10 py-14">
 
-        <h2 className="font-bebas text-5xl md:text-6xl text-[#FF0000] tracking-wide mb-12 text-center">
+        <h2 className="font-bebas text-5xl md:text-6xl text-[#0087ce] tracking-wide mb-12 text-center">
           TASTING NOTES
         </h2>
 
         <div className="space-y-6 text-lg md:text-xl text-gray-200">
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#0087ce] text-xl md:text-2xl tracking-wide">
               AROMA
             </span>
             <span className="md:text-right max-w-xl">
-              Fresh raspberry lift with a clean tang
-            </span>
+            Bright orange zest with a subtle sweet citrus lift            </span>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#0087ce] text-xl md:text-2xl tracking-wide">
               PALATE
             </span>
             <span className="md:text-right max-w-xl">
-              Bold raspberry brightness layered with Sour Goose’s signature vibrant edge
-            </span>
+            Sweet orange peel layered with smooth, candied citrus character            </span>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#0087ce] text-xl md:text-2xl tracking-wide">
               FINISH
             </span>
             <span className="md:text-right max-w-xl">
-              Crisp, expressive, and refreshing
-            </span>
+            Clean, lightly zesty, and refreshing            </span>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-between gap-2">
-            <span className="font-bebas text-[#FF0000] text-xl md:text-2xl tracking-wide">
+            <span className="font-bebas text-[#0087ce] text-xl md:text-2xl tracking-wide">
               MIXABILITY
             </span>
             <span className="md:text-right max-w-xl">
-              Perfect in sours, spritzes, highballs, and anything that needs a shot of raspberry intensity
-            </span>
+            Perfect in margaritas, tropical cocktails, highballs, and any drink that needs bold blue citrus flavour            </span>
           </div>
 
         </div>

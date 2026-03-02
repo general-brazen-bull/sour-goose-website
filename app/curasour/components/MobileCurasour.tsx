@@ -38,7 +38,7 @@ const navSocialItems = [
   { label: "Deep Blue Distilleries", link: "https://deepbluedistilleries.ca" },
 ];
 
-export default function RaspberryPage() {
+export default function CurasourPage() {
   const [decryptDone, setDecryptDone] = useState(false);
 
   useEffect(() => {
@@ -87,12 +87,12 @@ export default function RaspberryPage() {
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen w-full bg-black flex flex-col items-center text-center px-6 pt-28">
         {/* BACKGROUND BEAMS (never clickable) */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-70">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-90">
           <Beams
             beamWidth={2}
             beamHeight={14}
             beamNumber={10}
-            lightColor="#FF0000"
+            lightColor="#0087ce"
             speed={1.6}
             noiseIntensity={2}
             scale={0.28}
@@ -116,21 +116,21 @@ export default function RaspberryPage() {
           />
 
           <DecryptedText
-            text="RASPBERRY"
+            text="CURASOUR"
             speed={120}
             maxIterations={14}
             sequential
             revealDirection="start"
             animateOn="view"
             onFinish={() => {}}
-            className="font-bebas text-[#FF0000] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
-            encryptedClassName="font-bebas text-[#FF0000] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
+            className="font-bebas text-[#0087ce] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
+            encryptedClassName="font-bebas text-[#0087ce] tracking-wide text-[clamp(5rem,11vw,6rem)] leading-none mb-6"
           />
 
           {/* BOTTLE */}
           <motion.img
-            src="/bottle.webp"
-            alt="Sour Goose Raspberry"
+            src="/curasourbottle.png"
+            alt="Sour Goose Curasour"
             initial={{ x: 160, rotate: -45, opacity: 0 }}
             animate={{ x: 0, rotate: -45, opacity: 1 }}
             transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
@@ -148,8 +148,7 @@ export default function RaspberryPage() {
 
           {/* SUBTEXT */}
           <p className="font-bebas text-[#FFFF00] tracking-wide text-[clamp(2.2rem,4.5vw,2rem)] leading-tight -mt-28 mb-8 max-w-sm">
-            TART. JUICY. A STRAIGHT PUNCH OF RASPBERRY CHAOS.
-          </p>
+          ZESTY. ELECTRIC. A BLAST OF BLUE CITRUS BITE.          </p>
 
           {/* ✅ BUY NOW (REAL LINK, NO JS) */}
           <a
@@ -184,8 +183,8 @@ export default function RaspberryPage() {
 
       {/* MARQUEE SEAM */}
       <div className="relative z-20 pt-16">
-        <div className="marquee-wrap marquee-tight raspberry-marquee">
-          <MarqueeSection text="The new goose in town • Zesty • Sour • Unapologetic • " />
+        <div className="marquee-wrap marquee-tight curasour-marquee">
+          <MarqueeSection text="The New Curacao In Town • Bright • A Shockwave of Blue Orange• " />
         </div>
       </div>
 
@@ -197,19 +196,19 @@ export default function RaspberryPage() {
           style={{ backgroundImage: "url('/noise.png')" }}
         />
         <div className="absolute top-[10%] left-1/2 -translate-x-1/2 -z-10 pointer-events-none">
-          <div className="w-[1200px] h-[1200px] bg-red-600/10 blur-[260px]" />
+          <div className="w-[1200px] h-[1200px]  bg-[#0087ce]/25 blur-[260px]" />
         </div>
 
         {/* FLAVOUR DESCRIPTION */}
         <section className="w-full py-20 px-6">
           <div className="max-w-4xl mx-auto text-center text-gray-200 text-lg md:text-xl leading-relaxed space-y-10">
             <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-              Sour Goose Raspberry is the original burst of bold, bright energy. It hits with a punchy raspberry tang — vibrant, lively, and instantly expressive.
-            </ScrollReveal>
+            Curasour delivers the classic blue curaçao-style profile with balanced sweetness and vibrant citrus clarity.
+            It brings eye-catching colour and reliable orange-forward flavour to any cocktail, making it an easy staple behind the bar.            </ScrollReveal>
 
             <ScrollReveal baseOpacity={0} baseRotation={0} enableBlur blurStrength={20}>
-              Juicy, sharp, and refreshingly electric, it’s built for cocktails that need personality and real fruit brightness.
-            </ScrollReveal>
+            Whether you’re building tropical drinks or adding a citrus accent to a classic,
+            Curasour keeps it bright, smooth, and easy to mix.            </ScrollReveal>
           </div>
         </section>
 
@@ -217,26 +216,26 @@ export default function RaspberryPage() {
         <section className="w-full py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <ElectricBorder
-              color="#FF0000"
+              color="#0087ce"
               speed={1.2}
               chaos={0.6}
               thickness={2}
               style={{ borderRadius: 20 }}
             >
               <div className="bg-black/70 backdrop-blur-md rounded-[18px] px-8 py-12">
-                <h2 className="font-bebas text-5xl text-[#FF0000] tracking-wide mb-10 text-center">
+                <h2 className="font-bebas text-5xl text-[#0087ce] tracking-wide mb-10 text-center">
                   TASTING NOTES
                 </h2>
 
                 <div className="space-y-6 text-lg md:text-xl text-gray-200">
                   {[
-                    ["AROMA", "Fresh raspberry lift with a clean tang"],
-                    ["PALATE", "Bold raspberry brightness"],
-                    ["FINISH", "Crisp, expressive, refreshing"],
-                    ["MIXABILITY", "Perfect in sours, spritzes, and highballs"],
+                    ["AROMA", " Bright orange zest with a subtle sweet citrus lift "],
+                    ["PALATE", "Sweet orange peel layered with smooth, candied citrus character"],
+                    ["FINISH", "Clean, lightly zesty, and refreshing"],
+                    ["MIXABILITY", "Perfect in margaritas, tropical cocktails, highballs, and any drink that needs bold blue citrus flavour"],
                   ].map(([label, text]) => (
                     <div key={label} className="flex flex-col sm:flex-row sm:justify-between gap-2">
-                      <span className="font-bebas text-[#FF0000] text-2xl tracking-wide">{label}</span>
+                      <span className="font-bebas text-[#0087ce] text-2xl tracking-wide">{label}</span>
                       <span className="sm:text-right max-w-xl">{text}</span>
                     </div>
                   ))}

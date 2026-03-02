@@ -3,14 +3,20 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./StaggeredMenu.css";
 
-export interface StaggeredMenuItem {
-  label: string;
-  ariaLabel: string;
-  link: string;
-  external?: boolean;
-  target?: string;
-  rel?: string;
-}
+export type StaggeredMenuItem =
+  | {
+      label: string;
+      isHeading: true;
+    }
+  | {
+      label: string;
+      ariaLabel: string;
+      link: string;
+      external?: boolean;
+      target?: string;
+      rel?: string;
+      isHeading?: false;
+    };
 
 export interface StaggeredMenuSocialItem {
   label: string;
@@ -413,26 +419,34 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             role="list"
             data-numbering={displayItemNumbering || undefined}
           >
-            {items.length ? (
-              items.map((it, idx) => (
-                <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a
-                    className="sm-panel-item"
-                    href={it.link}
-                    aria-label={it.ariaLabel}
-                    data-index={idx + 1}
-                    {...(it.external
-                      ? {
-                          target: it.target ?? "_blank",
-                          rel: it.rel ?? "noopener noreferrer",
-                        }
-                      : {})}
-                  >
-                    <span className="sm-panel-itemLabel">{it.label}</span>
-                  </a>
-                </li>
-              ))
-            ) : (
+           {items.length ? (
+  items.map((it, idx) => (
+    <li className="sm-panel-itemWrap" key={it.label + idx}>
+      {it.isHeading ? (
+        <span className="sm-panel-heading">
+          {it.label}
+        </span>
+      ) : (
+        <a
+          className="sm-panel-item"
+          href={it.link}
+          aria-label={it.ariaLabel}
+          data-index={idx + 1}
+          {...(it.external
+            ? {
+                target: it.target ?? "_blank",
+                rel: it.rel ?? "noopener noreferrer",
+              }
+            : {})}
+        >
+          <span className="sm-panel-itemLabel">
+            {it.label}
+          </span>
+        </a>
+      )}
+    </li>
+  ))
+) : (
               <li className="sm-panel-itemWrap" aria-hidden="true">
                 <span className="sm-panel-item">
                   <span className="sm-panel-itemLabel">No items</span>
