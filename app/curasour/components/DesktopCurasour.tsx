@@ -126,8 +126,7 @@ export default function CurasourPage() {
     className="
       transition-all duration-300 ease-out
       group-hover:scale-[1.02]
-      group-hover:drop-shadow-[0_0_160px_rgba(255,0,0,1)]
-    "
+group-hover:drop-shadow-[0_0_160px_rgba(0,135,206,1)]    "
   >
     <DecryptedText
       text="CURASOUR"
@@ -144,8 +143,7 @@ export default function CurasourPage() {
         text-[clamp(4.5rem,10vw,9.5rem)]
         leading-none
         transition-all duration-300
-group-hover:[text-shadow:0_0_40px_rgba(255,0,0,0.9)0_0_40px_rgba(255,0,0,0.7),0_0_40px_rgba(255,0,0,0.5)]
-
+group-hover:[text-shadow:0_0_40px_rgba(0,135,206,0.9),0_0_40px_rgba(0,135,206,0.7),0_0_40px_rgba(0,135,206,0.5)]
       "
       encryptedClassName="
         font-bebas
