@@ -23,7 +23,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 40;
-    pointer-events: auto;       /* header + panel re-enable pointer-events */
+    pointer-events: none;       /* header + panel re-enable pointer-events */
   }
   
   /* keep for future but no-op now */
@@ -171,7 +171,7 @@
     flex-direction: column;
     padding: 6em 2em 2em 2em;
     overflow-y: auto;
-    z-index: 45;                /* below header, above rest of site */
+    z-index: 45;
   }
   
   [data-position='left'] .staggered-menu-panel {
@@ -241,7 +241,7 @@
     position: relative;
     color: #000;
     font-weight: 600;
-    font-size: 4rem;
+    font-size: 3rem;
     cursor: pointer;
     line-height: 1;
     letter-spacing: -2px;
@@ -446,11 +446,11 @@
   color: #FFFF00 !important; /* lightning yellow */
 }
 /* When menu is open, the toggle text + icon should be black */
-.staggered-menu-wrapper[data-open="true"] .sm-toggle {
+.staggered-menu-wrapper[data-open] .sm-toggle {
   color: #000000 !important;
 }
 /* Disable yellow hover when menu is open */
-.staggered-menu-wrapper[data-open="true"] .sm-toggle:hover {
+.staggered-menu-wrapper[data-open] .sm-toggle:hover {
   color: #000000 !important;
 }
 
@@ -461,9 +461,16 @@
 /* ================================
    PREVENT MENU LAYERS FROM BLOCKING LOGO
 ================================ */
-.sm-prelayers,
+.sm-prelayers {
+  pointer-events: none; /* prelayers never need to be clickable */
+}
+
 .staggered-menu-panel {
-  pointer-events: auto;
+  pointer-events: none; /* disabled when closed */
+}
+
+.staggered-menu-wrapper[data-open] .staggered-menu-panel {
+  pointer-events: auto; /* only enable when menu is actually open */
 }
 
 /* Ensure external logo ALWAYS receives clicks */

@@ -7,7 +7,7 @@ import StaggeredMenu from "@/app/animations/StaggeredMenu"
 import SpotlightCard from "@/app/animations/SpotlightCard"
 import FloatingLines from "@/app/animations/FloatingLines"
 
-import { Store, ExternalLink } from "lucide-react"
+import { Store, ExternalLink, ShoppingCart, MapPin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { TikTokIcon } from "@/components/icons/TikTokIcon"
@@ -61,24 +61,22 @@ export default function DesktopWhereToBuy() {
 
   return (
     <div className="relative min-h-screen text-white overflow-visible">
-      {/* FLOATING LINES BACKGROUND (FULL PAGE, NO FOOTER) */}
+
+      {/* FLOATING LINES BACKGROUND */}
       <div className="fixed inset-0 -z-20">
         <FloatingLines
           enabledWaves={["middle", "bottom"]}
-          linesGradient={[
-            "#8FC81C", // soft yellow
-            "#FF0000"  // deeper gold
-          ]}          lineCount={[8, 12, 16]}
+          linesGradient={["#8FC81C", "#FF0000"]}
+          lineCount={[8, 12, 16]}
           lineDistance={[10, 8, 6]}
           bendRadius={4}
           bendStrength={-0.4}
           interactive
           parallax
-          
         />
       </div>
 
-      {/* DARK OVERLAY FOR READABILITY */}
+      {/* DARK OVERLAY */}
       <div className="fixed inset-0 -z-10 bg-black/70 pointer-events-none" />
 
       {/* HEADER */}
@@ -123,88 +121,111 @@ export default function DesktopWhereToBuy() {
         </p>
       </section>
 
-      {/* PRIORITY — FIND IT IN STORES */}
-      <section className="relative z-10 px-6 max-w-4xl mx-auto mt-10">
-        <SpotlightCard className="group p-14 rounded-3xl flex flex-col items-center text-center">
-          <Store className="w-16 h-16 mb-8 text-lightning-yellow transition-colors group-hover:text-sour-red" />
+      {/* 2x2 CARD GRID */}
+      <section className="relative z-10 px-6 max-w-6xl mx-auto mt-16 mb-40">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-          <h3 className="font-bebas-ui text-4xl text-lightning-yellow mb-6">
-            FIND IT IN STORES
-          </h3>
+          {/* FIND IN STORES */}
+          <SpotlightCard className="group p-14 rounded-3xl flex flex-col items-center text-center">
+            <Store className="w-16 h-16 mb-8 text-lightning-yellow group-hover:text-sour-red transition-colors" />
 
-          <p className="text-white font-avenir text-lg max-w-xl">
-            Sour Goose is available at select private liquor stores across BC.
-          </p>
+            <h3 className="font-bebas-ui text-4xl text-lightning-yellow mb-6">
+              FIND IT IN STORES
+            </h3>
 
-          <a
-  href="https://deepbluedistilleries.ca/where-to-buy/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <Button className="mt-10 bg-sour-red text-white font-bebas-ui text-xl px-10 py-4">
-    FIND A STORE NEAR YOU
-  </Button>
-</a>
-        </SpotlightCard>
-      </section>
+            <p className="text-white font-avenir text-lg max-w-xl">
+              Sour Goose is available at select private liquor stores across BC.
+            </p>
 
-      {/* SHOP ONLINE */}
-      <section className="relative z-10 max-w-3xl mx-auto px-6 mt-32 text-center">
-        <h3 className="font-bebas-ui text-3xl text-lightning-yellow mb-4">
-          SHOP ONLINE
-        </h3>
-        <p className="text-gray-300 text-lg">
-          Order Sour Goose directly through our official online retailer.
-        </p>
-        <a
-          href="https://deepbluedistilleries.ca/product-tag/sour-goose/"
-          target="_blank"
-          className="inline-block mt-6 text-sour-red font-bebas-ui text-xl hover:underline"
-        >
-          SHOP NOW →
-        </a>
-      </section>
+            <a
+              href="https://deepbluedistilleries.ca/where-to-buy/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="mt-10 bg-sour-red text-white font-bebas-ui text-xl px-10 py-4">
+                FIND A STORE NEAR YOU
+              </Button>
+            </a>
+          </SpotlightCard>
 
-      {/* VISIT DISTILLERY */}
-      <section className="relative z-10 max-w-3xl mx-auto px-6 mt-24 text-center">
-        <h3 className="font-bebas-ui text-3xl text-lightning-yellow mb-4">
-          VISIT THE DISTILLERY
-        </h3>
-        <p className="text-gray-300 text-lg">
-          5800 Cedarbridge Way #130, Richmond, BC
-        </p>
-        <div className="mt-4">
-          <BusinessStatus />
+          {/* SHOP ONLINE */}
+          <SpotlightCard className="group p-14 rounded-3xl flex flex-col items-center text-center">
+            <ShoppingCart className="w-16 h-16 mb-8 text-lightning-yellow group-hover:text-sour-red transition-colors" />
+
+            <h3 className="font-bebas-ui text-4xl text-lightning-yellow mb-6">
+              SHOP ONLINE
+            </h3>
+
+            <p className="text-white font-avenir text-lg max-w-xl">
+              Order Sour Goose directly through our official online retailer.
+            </p>
+
+            <a
+              href="https://deepbluedistilleries.ca/product-tag/sour-goose/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="mt-10 bg-sour-red text-white font-bebas-ui text-xl px-10 py-4">
+                SHOP NOW
+              </Button>
+            </a>
+          </SpotlightCard>
+
+          {/* VISIT DISTILLERY */}
+          <SpotlightCard className="group p-14 rounded-3xl flex flex-col items-center text-center">
+            <MapPin className="w-16 h-16 mb-8 text-lightning-yellow group-hover:text-sour-red transition-colors" />
+
+            <h3 className="font-bebas-ui text-4xl text-lightning-yellow mb-6">
+              VISIT THE DISTILLERY
+            </h3>
+
+            <p className="text-white font-avenir text-lg max-w-xl">
+              5800 Cedarbridge Way #130, Richmond, BC
+            </p>
+
+            <div className="mt-4">
+              <BusinessStatus />
+            </div>
+
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=5800+Cedarbridge+Way+%23130,+Richmond,+BC"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="mt-10 bg-sour-red text-white font-bebas-ui text-xl px-10 py-4">
+                GET DIRECTIONS
+              </Button>
+            </a>
+          </SpotlightCard>
+
+          {/* REQUEST IT */}
+          <SpotlightCard className="group p-14 rounded-3xl flex flex-col items-center text-center">
+            <Mail className="w-16 h-16 mb-8 text-lightning-yellow group-hover:text-sour-red transition-colors" />
+
+            <h3 className="font-bebas-ui text-4xl text-lightning-yellow mb-6">
+              DON’T SEE IT?
+            </h3>
+
+            <p className="text-white font-avenir text-lg max-w-xl">
+              Ask your local liquor store to stock Sour Goose by Deep Blue Distilleries.
+            </p>
+
+            <a href="mailto:orders@deepbluedistilleries.ca">
+              <Button className="mt-10 bg-sour-red text-white font-bebas-ui text-xl px-10 py-4">
+                REQUEST SOUR GOOSE
+              </Button>
+            </a>
+          </SpotlightCard>
+
         </div>
-        <a
-          href="https://www.google.com/maps/dir/?api=1&destination=5800+Cedarbridge+Way+%23130,+Richmond,+BC"
-          target="_blank"
-          className="inline-block mt-6 text-sour-red font-bebas-ui text-xl hover:underline"
-        >
-          GET DIRECTIONS →
-        </a>
       </section>
 
-      {/* REQUEST IT */}
-      <section className="relative z-10 max-w-3xl mx-auto px-6 mt-24 mb-40 text-center">
-        <h3 className="font-bebas-ui text-3xl text-lightning-yellow mb-4">
-          DON’T SEE IT?
-        </h3>
-        <p className="text-gray-300 text-lg">
-          Ask your local liquor store to stock Sour Goose by Deep Blue Distilleries.
-        </p>
-        <a
-          href="mailto:orders@deepbluedistilleries.ca"
-          className="inline-block mt-6 text-sour-red font-bebas-ui text-xl hover:underline"
-        >
-          REQUEST SOUR GOOSE →
-        </a>
-      </section>
-
-      {/* FOOTER (NO BACKGROUND EFFECT) */}
+      {/* FOOTER */}
       <footer className="bg-black py-12 border-t border-sour-red relative z-10">
         <div className="max-w-6xl mx-auto px-4 text-center space-y-8">
+
           <div className="flex flex-wrap justify-center items-center gap-6">
+
             <a
               href="https://instagram.com/drinksourgoose"
               target="_blank"
@@ -236,6 +257,7 @@ export default function DesktopWhereToBuy() {
                 DEEPBLUEDISTILLERIES.CA
               </span>
             </a>
+
           </div>
 
           <div className="text-sm text-gray-400">
@@ -243,6 +265,7 @@ export default function DesktopWhereToBuy() {
             <br /><br />
             © 2026 Brazen Bull Creative
           </div>
+
         </div>
       </footer>
     </div>

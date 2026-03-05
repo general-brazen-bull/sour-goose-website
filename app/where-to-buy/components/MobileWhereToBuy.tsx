@@ -6,7 +6,7 @@ import StaggeredMenu from "@/app/animations/StaggeredMenu"
 import SpotlightCard from "@/app/animations/SpotlightCard"
 import FloatingLines from "@/app/animations/FloatingLines"
 
-import { Store, ExternalLink } from "lucide-react"
+import { Store, ExternalLink, ShoppingCart, MapPin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { TikTokIcon } from "@/components/icons/TikTokIcon"
@@ -48,6 +48,7 @@ const navMenuItems = [
     target: "_blank",
   },
 ]
+
 const navSocialItems = [
   { label: "Instagram", link: "https://instagram.com/drinksourgoose" },
   { label: "TikTok", link: "https://www.tiktok.com/@drinksourgoose" },
@@ -56,11 +57,11 @@ const navSocialItems = [
 
 export default function MobileWhereToBuy() {
   return (
-    <div className="relative min-h-screen text-white overflow-hidden">
-      {/* FLOATING LINES BACKGROUND */}
-      <div className="fixed inset-0 -z-20">
+    <div className="relative isolate min-h-screen text-white overflow-visible">
+      {/* BACKGROUND */}
+      <div className="fixed inset-0 -z-20 pointer-events-none">
         <FloatingLines
-          enabledWaves={["middle","bottom"]}
+          enabledWaves={["middle", "bottom"]}
           linesGradient={["#8FC81C", "#FF0000"]}
           lineCount={8}
           lineDistance={8}
@@ -71,31 +72,40 @@ export default function MobileWhereToBuy() {
         />
       </div>
 
-      {/* DARK OVERLAY */}
       <div className="fixed inset-0 -z-10 bg-black/50 pointer-events-none" />
 
-      {/* HEADER */}
-      <div className="fixed top-0 left-0 w-full z-[99999] flex items-center justify-between px-5 pt-4">
-        <Link href="/" className="relative z-[200000] pointer-events-auto">
-          <img src="/Sour Goose Logo.webp" alt="Sour Goose" className="h-9 w-auto" />
-        </Link>
-
-        <StaggeredMenu
-          position="right"
-          items={navMenuItems}
-          socialItems={navSocialItems}
-          displaySocials
-          menuButtonColor="#ffffff"
-          openMenuButtonColor="#000000"
-          changeMenuColorOnOpen
-          colors={["#FF0000", "#8FC81C"]}
-          accentColor="#FFFF00"
-          disableLogo
-          className="font-bebas text-lg"
-        />
+      {/* GoosePeek (kept, but page-safe) */}
+      <div className="display:none pointer-events-none">
+        <GoosePeek active={false}/>
       </div>
 
-      <GoosePeek />
+      {/* HEADER
+          CRITICAL FIX:
+          - wrapper is pointer-events-none so it can NEVER block the page
+          - logo + menu are pointer-events-auto so they still work
+      */}
+     <header className="fixed top-0 left-0 right-0 z-[100000] bg-black/35 backdrop-blur-md border-b border-red-700/70 pointer-events-none">
+  <div className="max-w-6xl mx-auto px-4 h-[64px] flex items-center justify-between">
+    <Link href="/" className="pointer-events-auto relative z-[200000]">
+      <img src="/Sour Goose Logo.webp" alt="Sour Goose" className="h-8 w-auto" />
+    </Link>
+    <div className="pointer-events-auto">
+          <StaggeredMenu
+            position="right"
+            items={navMenuItems}
+            socialItems={navSocialItems}
+            displaySocials
+            menuButtonColor="#ffffff"
+            openMenuButtonColor="#000000"
+            changeMenuColorOnOpen
+            colors={["#FF0000", "#8FC81C"]}
+            accentColor="#FFFF00"
+            disableLogo
+            className="font-bebas text-lg"
+          />
+           </div>
+  </div>
+</header>
 
       {/* HERO */}
       <section className="relative z-10 min-h-[45vh] flex flex-col items-center justify-center text-center px-5">
@@ -115,10 +125,11 @@ export default function MobileWhereToBuy() {
         </p>
       </section>
 
-      {/* FIND IN STORES */}
-      <section className="relative z-10 px-5 mt-6">
-        <SpotlightCard className="p-8 rounded-3xl text-center">
-          <Store className="mx-auto w-12 h-12 text-lightning-yellow mb-4" />
+      {/* STACKED CARDS (DESKTOP STYLE) */}
+      <section className="pointer-events-auto relative z-10 px-5 space-y-8 mb-28">
+        {/* FIND IN STORES */}
+        <SpotlightCard className="group p-8 rounded-3xl flex flex-col items-center text-center pointer-events-auto">
+          <Store className="w-12 h-12 mb-4 text-lightning-yellow transition-colors group-hover:text-sour-red" />
 
           <h3 className="font-bebas-ui text-3xl text-lightning-yellow mb-3">
             FIND IT IN STORES
@@ -132,72 +143,84 @@ export default function MobileWhereToBuy() {
             href="https://deepbluedistilleries.ca/where-to-buy/"
             target="_blank"
             rel="noopener noreferrer"
+            className="w-full"
           >
             <Button className="w-full bg-sour-red text-white font-bebas-ui text-xl py-4">
               FIND A STORE NEAR YOU
             </Button>
           </a>
         </SpotlightCard>
-      </section>
 
-      {/* SHOP ONLINE */}
-      <section className="relative z-10 px-5 mt-10">
-        <SpotlightCard className="p-8 rounded-3xl text-center">
-          <h3 className="font-bebas-ui text-2xl text-lightning-yellow mb-2">
+        {/* SHOP ONLINE */}
+        <SpotlightCard className="group p-8 rounded-3xl flex flex-col items-center text-center pointer-events-auto">
+          <ShoppingCart className="w-12 h-12 mb-4 text-lightning-yellow transition-colors group-hover:text-sour-red" />
+
+          <h3 className="font-bebas-ui text-3xl text-lightning-yellow mb-3">
             SHOP ONLINE
           </h3>
-          <p className="text-gray-300 text-base">
+
+          <p className="text-gray-300 text-base mb-6">
             Order Sour Goose directly through our official online retailer.
           </p>
+
           <a
             href="https://deepbluedistilleries.ca/product-tag/sour-goose/"
             target="_blank"
-            className="inline-block mt-4 text-sour-red font-bebas-ui text-lg"
+            rel="noopener noreferrer"
+            className="w-full"
           >
-            SHOP NOW →
+            <Button className="w-full bg-sour-red text-white font-bebas-ui text-xl py-4">
+              SHOP NOW
+            </Button>
           </a>
         </SpotlightCard>
-      </section>
 
-      {/* VISIT DISTILLERY */}
-      <section className="relative z-10 px-5 mt-10">
-        <SpotlightCard className="p-8 rounded-3xl text-center">
-          <h3 className="font-bebas-ui text-2xl text-lightning-yellow mb-2">
+        {/* VISIT DISTILLERY */}
+        <SpotlightCard className="group p-8 rounded-3xl flex flex-col items-center text-center pointer-events-auto">
+          <MapPin className="w-12 h-12 mb-4 text-lightning-yellow transition-colors group-hover:text-sour-red" />
+
+          <h3 className="font-bebas-ui text-3xl text-lightning-yellow mb-3">
             VISIT THE DISTILLERY
           </h3>
+
           <p className="text-gray-300 text-base">
-            5800 Cedarbridge Way #130<br />
+            5800 Cedarbridge Way #130
+            <br />
             Richmond, BC
           </p>
 
-          <div className="mt-3">
+          <div className="mt-3 mb-6">
             <BusinessStatus />
           </div>
 
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=5800+Cedarbridge+Way+%23130,+Richmond,+BC"
             target="_blank"
-            className="inline-block mt-4 text-sour-red font-bebas-ui text-lg"
+            rel="noopener noreferrer"
+            className="w-full"
           >
-            GET DIRECTIONS →
+            <Button className="w-full bg-sour-red text-white font-bebas-ui text-xl py-4">
+              GET DIRECTIONS
+            </Button>
           </a>
         </SpotlightCard>
-      </section>
 
-      {/* REQUEST IT */}
-      <section className="relative z-10 px-5 mt-10 mb-28">
-        <SpotlightCard className="p-8 rounded-3xl text-center">
-          <h3 className="font-bebas-ui text-2xl text-lightning-yellow mb-2">
+        {/* REQUEST IT */}
+        <SpotlightCard className="group p-8 rounded-3xl flex flex-col items-center text-center pointer-events-auto">
+          <Mail className="w-12 h-12 mb-4 text-lightning-yellow transition-colors group-hover:text-sour-red" />
+
+          <h3 className="font-bebas-ui text-3xl text-lightning-yellow mb-3">
             DON’T SEE IT?
           </h3>
-          <p className="text-gray-300 text-base">
+
+          <p className="text-gray-300 text-base mb-6">
             Ask your local liquor store to stock Sour Goose.
           </p>
-          <a
-            href="mailto:orders@deepbluedistilleries.ca"
-            className="inline-block mt-4 text-sour-red font-bebas-ui text-lg"
-          >
-            REQUEST SOUR GOOSE →
+
+          <a href="mailto:orders@deepbluedistilleries.ca" className="w-full pointer-events-auto">
+            <Button className="w-full bg-sour-red text-white font-bebas-ui text-xl py-4">
+              REQUEST SOUR GOOSE
+            </Button>
           </a>
         </SpotlightCard>
       </section>
