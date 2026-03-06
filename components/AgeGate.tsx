@@ -48,14 +48,13 @@ export default function AgeGate() {
         {/* Logo */}
         <div className="mb-12 w-full flex justify-center px-4">
           <div className="w-full max-w-[800px]">
-            <Image
+            <img
               src="/sour-goose-logo.webp"
               alt="Sour Goose Logo"
               width={581}
               height={134}
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 768px) 90vw, 600px"
+              loading="eager"
+              fetchPriority="high"              sizes="(max-width: 768px) 90vw, 600px"
               className="mx-auto object-contain"
             />
           </div>
