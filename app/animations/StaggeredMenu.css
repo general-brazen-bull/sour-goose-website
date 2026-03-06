@@ -241,7 +241,7 @@
     position: relative;
     color: #000;
     font-weight: 600;
-    font-size: 3rem;
+    font-size: clamp(3.5rem, 6vw, 4rem);
     cursor: pointer;
     line-height: 1;
     letter-spacing: -2px;

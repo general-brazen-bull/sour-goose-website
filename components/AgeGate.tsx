@@ -54,6 +54,7 @@ export default function AgeGate() {
               width={581}
               height={134}
               priority
+              fetchPriority="high"
               sizes="(max-width: 768px) 90vw, 600px"
               className="mx-auto object-contain"
             />
