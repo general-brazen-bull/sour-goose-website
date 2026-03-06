@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    browsersListForSwc: true, // targets modern browsers only
+  },
 }
 
 export default nextConfig

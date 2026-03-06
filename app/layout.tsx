@@ -80,6 +80,7 @@ export default async function RootLayout({
           rel="preload"
           as="image"
           href="/sour-goose-logo.webp"
+          fetchPriority="high"
         />
       </head>
 
