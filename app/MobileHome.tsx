@@ -1,14 +1,13 @@
 "use client";
+import dynamic from "next/dynamic"
 
 import { useState, useEffect, useRef } from "react";
 
-import AgeGate from "../components/AgeGate";
 import { Button } from "../components/ui/button";
 import { Instagram, ExternalLink, ChevronUp } from "lucide-react";
 import { TikTokIcon } from "../components/icons/TikTokIcon";
 import Link from "next/link";
 
-import dynamic from "next/dynamic"
 const LiquidEther = dynamic(
   () => import("@/app/animations/LiquidEther"),
   { ssr: false }
@@ -19,21 +18,28 @@ import DecryptedText from "@/app/animations/DecryptedText";
 import GoosePeek from "@/app/animations/GoosePeek";
 import SpotlightCard from "@/app/animations/SpotlightCard";
 import FuzzyText from "@/app/animations/FuzzyText";
-import ScrollReveal from "@/app/animations/ScrollReveal";
+const ScrollReveal = dynamic(
+  () => import("@/app/animations/ScrollReveal"),
+  { ssr: false }
+)
 import StaggeredMenu from "@/app/animations/StaggeredMenu";
-import MarqueeSection from "@/app/animations/MarqueeSection";
+const MarqueeSection = dynamic(
+  () => import("@/app/animations/MarqueeSection"),
+  { ssr: false }
+)
 import BackToTop from "../components/BackToTop";
 import LightPillar from '@/app/animations/LightPillar';
-import DesktopTikTokGrid from "@/app/animations/DesktopTikTokGrid";
 
+const DesktopTikTokGrid = dynamic(
+  () => import("@/app/animations/DesktopTikTokGrid"),
+  { ssr: false }
+)
 
 
 import { gsap } from "gsap";
 
 export default function MobileHome() {
   /* ========================= STATE ========================= */
-  const [isVerified, setIsVerified] = useState(false);
-  const [showContent, setShowContent] = useState(false);
 
   // HERO animation sequence
   const [startDecrypt, setStartDecrypt] = useState(false);
@@ -60,30 +66,18 @@ export default function MobileHome() {
 
   /* ========================= EFFECTS ========================= */
 
-  /** AGE GATE */
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const verified = sessionStorage.getItem("age-verified");
-    if (verified) {
-      setIsVerified(true);
-      setShowContent(true);
-    }
-  }, []);
 
   /** POSITION FLASH BANG *BEFORE* DECRYPT STARTS */
   useEffect(() => {
-    if (!showContent) return;
-
     if (flashRef.current) {
       gsap.set(flashRef.current, {
-        y: "32vh", // consistent center-start for ALL mobile sizes
+        y: "32vh",
       });
     }
-
-    // Allow decrypt to begin AFTER it is positioned correctly
+  
+    // start decrypt immediately
     setStartDecrypt(true);
-  }, [showContent]);
+  }, []);
 
   /** FLASH BANG → SLIDE UP → SOUR/GOOSE → SUBTEXT */
   useEffect(() => {
@@ -151,12 +145,6 @@ export default function MobileHome() {
 
 /* ========================= HANDLERS ========================= */
 
-const handleVerification = () => {
-  sessionStorage.setItem("age-verified", "true");
-  setIsVerified(true);
-  setTimeout(() => setShowContent(true), 400);
-};
-
 const scrollToTop = () => {
   const el = document.getElementById("page-top");
   if (el) {
@@ -170,13 +158,6 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
-
-
-
-
-  /* ========================= EARLY RETURN ========================= */
-
-  if (!isVerified) return <AgeGate onVerified={handleVerification} />;
 
   /* ========================= NAV DATA ========================= */
 
@@ -208,11 +189,8 @@ const scrollToTop = () => {
   /* ========================= RENDER ========================= */
 
   return (
-    <div
-      className={`min-h-screen transition-opacity duration-700 ${
-        showContent ? "opacity-100" : "opacity-0"
-      }`}
-    >
+    <div className="min-h-screen opacity-100 transition-opacity duration-700">
+
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-[100000] bg-black/35 backdrop-blur-md border-b border-red-700/70">
         <div className="max-w-6xl mx-auto px-4 h-[64px] flex items-center justify-between pointer-events-none">

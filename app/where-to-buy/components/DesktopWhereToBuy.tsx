@@ -1,4 +1,5 @@
 "use client"
+import dynamic from "next/dynamic"
 
 import { useState } from "react"
 import GoosePeek from "@/app/animations/GoosePeek"
@@ -14,7 +15,6 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { TikTokIcon } from "@/components/icons/TikTokIcon"
 import { Instagram } from "lucide-react"
-import dynamic from "next/dynamic"
 
 /* ---------------- BUSINESS STATUS ---------------- */
 function BusinessStatus() {

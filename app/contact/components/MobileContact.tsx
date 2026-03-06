@@ -1,10 +1,10 @@
 "use client"
+import dynamic from "next/dynamic"
 
 import GoosePeek from "@/app/animations/GoosePeek"
 import DecryptedText from "@/app/animations/DecryptedText"
 import SpotlightCard from "@/app/animations/SpotlightCard"
 import StaggeredMenu from "@/app/animations/StaggeredMenu"
-import dynamic from "next/dynamic"
 
 const Aurora = dynamic(
   () => import("@/app/animations/Aurora"),

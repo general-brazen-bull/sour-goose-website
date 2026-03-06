@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic"
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -10,7 +11,6 @@ import ScrollReveal from "@/app/animations/ScrollReveal";
 import Beams from "@/app/animations/Beams";
 import { motion } from "framer-motion";
 import MarqueeSection from "@/app/animations/MarqueeSection";
-import dynamic from "next/dynamic"
 const ElectricBorder = dynamic(
   () => import("@/app/animations/ElectricBorder"),
   { ssr: false }

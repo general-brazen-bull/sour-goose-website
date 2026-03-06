@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic"
 
 import { useState, useEffect } from "react";
 import { Instagram, ExternalLink } from "lucide-react";
@@ -11,7 +12,6 @@ import ScrollReveal from "@/app/animations/ScrollReveal";
 import Beams from "@/app/animations/Beams";
 import { motion } from "framer-motion";
 import MarqueeSection from "@/app/animations/MarqueeSection";
-import dynamic from "next/dynamic"
 const ElectricBorder = dynamic(
   () => import("@/app/animations/ElectricBorder"),
   { ssr: false }

@@ -1,10 +1,10 @@
 "use client"
+import dynamic from "next/dynamic"
 
 import { useState } from "react"
 import GoosePeek from "@/app/animations/GoosePeek"
 import DecryptedText from "@/app/animations/DecryptedText"
 import SpotlightCard from "@/app/animations/SpotlightCard"
-import dynamic from "next/dynamic"
 const LiquidEther = dynamic(
   () => import("@/app/animations/LiquidEther"),
   { ssr: false }

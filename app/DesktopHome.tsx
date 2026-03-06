@@ -1,13 +1,12 @@
 "use client";
+import dynamic from "next/dynamic"
 
 import { useState, useEffect, useRef } from "react";
-import AgeGate from "../components/AgeGate";
 import { Button } from "@/components/ui/button";
 import { Instagram, ExternalLink } from "lucide-react";
 import { TikTokIcon } from "@/components/icons/TikTokIcon";
 import Link from "next/link";
 
-import dynamic from "next/dynamic"
 const LiquidEther = dynamic(
   () => import("@/app/animations/LiquidEther"),
   { ssr: false }
@@ -19,7 +18,6 @@ import GoosePeek from "@/app/animations/GoosePeek";
 import SpotlightCard from "@/app/animations/SpotlightCard";
 import FlowingMenu from "@/app/animations/FlowingMenu";
 import FuzzyText from "@/app/animations/FuzzyText";
-import dynamic from "next/dynamic"
 const ElectricBorder = dynamic(
   () => import("@/app/animations/ElectricBorder"),
   { ssr: false }
@@ -78,8 +76,6 @@ const gooseMenuItems: MenuItemProps[] = [
 
 
 export default function HomePage() {
-  const [isVerified, setIsVerified] = useState(false);
-  const [showContent, setShowContent] = useState(false);
 
   // HERO sequence animation states
   const [decryptDone, setDecryptDone] = useState(false);
@@ -91,14 +87,6 @@ export default function HomePage() {
   const typewriterText =
     "The bold, vibrant liqueur made for people who want flavour with real expression.";
 
-  /* AGE GATE LOGIC */
-  useEffect(() => {
-    const verified = sessionStorage.getItem("age-verified");
-    if (verified) {
-      setIsVerified(true);
-      setShowContent(true);
-    }
-  }, []);
 
   const typewriterIndexRef = useRef(0);
 
@@ -144,22 +132,10 @@ export default function HomePage() {
       if (intervalId) clearInterval(intervalId);
     };
   }, [decryptDone]);
-  
-
-  const handleVerification = () => {
-    sessionStorage.setItem("age-verified", "true");
-    setIsVerified(true);
-    setTimeout(() => setShowContent(true), 500);
-  };
-
-  if (!isVerified) return <AgeGate onVerified={handleVerification} />;
 
   return (
-    <div
-      className={`min-h-screen transition-opacity duration-1000 ${
-        showContent ? "opacity-100" : "opacity-0"
-      }`}
-    >
+    <div className="min-h-screen opacity-100 transition-opacity duration-1000">
+      
 {/* HEADER BAR (Sour Goose Logo + Menu Button) */}
 <div className="fixed top-0 left-0 w-full z-[99999] flex items-center justify-between px-6 pt-4">
 
