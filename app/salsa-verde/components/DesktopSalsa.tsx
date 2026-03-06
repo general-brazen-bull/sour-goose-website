@@ -62,7 +62,7 @@ export default function SalsaPage() {
       {/* HEADER */}
       <div className="fixed top-0 left-0 w-full z-[99999] flex items-center justify-between px-6 pt-4">
         <Link href="/" className="relative z-[200000]">
-          <img src="/Sour Goose Logo.webp" alt="Sour Goose" className="h-10 w-auto" />
+          <img src="/sour-goose-logo.webp" alt="Sour Goose" className="h-10 w-auto" />
         </Link>
 
         <StaggeredMenu

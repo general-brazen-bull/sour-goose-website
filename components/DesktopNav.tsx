@@ -31,7 +31,7 @@ export default function DesktopNav() {
         className="select-none relative z-[200000] pointer-events-auto"
       >
         <img
-          src="/Sour Goose Logo.webp"
+          src="/sour-goose-logo.webp"
           alt="Sour Goose"
           className="h-10 w-auto"
         />

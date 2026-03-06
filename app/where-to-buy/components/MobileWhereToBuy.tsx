@@ -90,7 +90,7 @@ export default function MobileWhereToBuy() {
      <header className="fixed top-0 left-0 right-0 z-[100000] bg-black/35 backdrop-blur-md border-b border-red-700/70 pointer-events-none">
   <div className="max-w-6xl mx-auto px-4 h-[64px] flex items-center justify-between">
     <Link href="/" className="pointer-events-auto relative z-[200000]">
-      <img src="/Sour Goose Logo.webp" alt="Sour Goose" className="h-8 w-auto" />
+      <img src="/sour-goose-logo.webp" alt="Sour Goose" className="h-8 w-auto" />
     </Link>
     <div className="pointer-events-auto">
           <StaggeredMenu

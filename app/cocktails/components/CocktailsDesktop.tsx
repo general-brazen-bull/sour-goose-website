@@ -47,7 +47,7 @@ export default function CocktailsDesktop() {
       <header className="fixed top-0 left-0 right-0 z-[100000] bg-black/35 backdrop-blur-md border-b border-red-700/70">
         <div className="max-w-7xl mx-auto px-6 h-[64px] flex items-center justify-between">
           <a href="/" aria-label="Go to home" className="pointer-events-auto">
-            <img src="/Sour Goose Logo.webp" alt="Sour Goose" className="h-8 w-auto" />
+            <img src="/sour-goose-logo.webp" alt="Sour Goose" className="h-8 w-auto" />
           </a>
 
           <div className="pointer-events-auto">

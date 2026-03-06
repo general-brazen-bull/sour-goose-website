@@ -46,8 +46,8 @@ export default function CocktailsMobile() {
             className="relative z-[200000] pointer-events-auto"
           >
             <img
-              src="/Sour Goose Logo.webp"
-              alt="Sour Goose"
+      src="/sour-goose-logo.webp"
+      alt="Sour Goose"
               className="h-8 w-auto"
             />
           </Link>

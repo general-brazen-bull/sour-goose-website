@@ -135,7 +135,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen opacity-100 transition-opacity duration-1000">
-      
+
 {/* HEADER BAR (Sour Goose Logo + Menu Button) */}
 <div className="fixed top-0 left-0 w-full z-[99999] flex items-center justify-between px-6 pt-4">
 
@@ -145,7 +145,7 @@ export default function HomePage() {
     className="select-none relative z-[200000] pointer-events-auto"
   >
     <img
-      src="/Sour Goose Logo.webp"
+      src="/sour-goose-logo.webp"
       alt="Sour Goose"
       className="h-10 w-auto"
     />

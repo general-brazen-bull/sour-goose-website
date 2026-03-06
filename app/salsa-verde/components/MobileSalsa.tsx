@@ -57,7 +57,7 @@ export default function SalsaPage() {
             aria-label="Go to home"
             className="cursor-pointer pointer-events-auto relative z-[200000]"
           >
-            <img src="/Sour Goose Logo.webp" alt="Sour Goose" className="h-8 w-auto" />
+            <img src="/sour-goose-logo.webp" alt="Sour Goose" className="h-8 w-auto" />
           </Link>
 
           <div className="pointer-events-auto">
