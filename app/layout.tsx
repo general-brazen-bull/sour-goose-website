@@ -76,18 +76,19 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${bebas.variable}`}>
       <head>
-<link
-  rel="preload"
-  as="image"
-  href="/sour-goose-logo.webp"
-/>
+        <link
+          rel="preload"
+          as="image"
+          href="/sour-goose-logo.webp"
+        />
+      </head>
+
       <body className="bg-black text-white overflow-x-hidden">
         {!verified ? <AgeGate /> : children}
 
         <Analytics />
         <SpeedInsights />
       </body>
-      </head>
     </html>
   )
 }
