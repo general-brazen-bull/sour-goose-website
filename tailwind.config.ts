@@ -3,16 +3,15 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   darkMode: ["class"],
 
-  safelist: [
-    "animate-blink",
-    "animate-typing",
-  ],
-
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "*.{js,ts,jsx,tsx,mdx}",
+  ],
+
+  safelist: [
+    "animate-blink",
+    "animate-typing",
   ],
 
   theme: {
