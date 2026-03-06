@@ -3,7 +3,6 @@
 import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import Image from "next/image"
 
 export default function AgeGate() {
@@ -74,16 +73,16 @@ export default function AgeGate() {
                 What year were you born?
               </label>
 
-              <Input
-                type="tel"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                value={birthYear}
-                onChange={(e) => setBirthYear(e.target.value)}
-                placeholder="YYYY"
-                className="text-center text-2xl font-bold bg-black border-sour-red border-2 text-white placeholder-gray-400 h-16 w-full"
-                required
-              />
+              <input
+  type="tel"
+  inputMode="numeric"
+  pattern="[0-9]*"
+  value={birthYear}
+  onChange={(e) => setBirthYear(e.target.value)}
+  placeholder="YYYY"
+  className="text-center text-2xl font-bold bg-black border-sour-red border-2 text-white placeholder-gray-400 h-16 w-full rounded-md px-4"
+  required
+/>
             </div>
 
             {error && (
