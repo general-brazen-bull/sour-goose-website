@@ -2,19 +2,12 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Bebas_Neue } from "next/font/google"
 import { cookies } from "next/headers"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import dynamic from 'next/dynamic'
 import AgeGate from "../components/AgeGate"
 import "./globals.css"
 
-// Lazy load analytics — don't block initial render
-const Analytics = dynamic(
-  () => import('@vercel/analytics/next').then(m => ({ default: m.Analytics })),
-  { ssr: false }
-)
-const SpeedInsights = dynamic(
-  () => import('@vercel/speed-insights/next').then(m => ({ default: m.SpeedInsights })),
-  { ssr: false }
-)
 
 // ----------- FONTS -----------
 const inter = Inter({
