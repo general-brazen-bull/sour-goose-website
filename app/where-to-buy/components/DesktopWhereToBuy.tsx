@@ -5,13 +5,16 @@ import GoosePeek from "@/app/animations/GoosePeek"
 import DecryptedText from "@/app/animations/DecryptedText"
 import StaggeredMenu from "@/app/animations/StaggeredMenu"
 import SpotlightCard from "@/app/animations/SpotlightCard"
-import FloatingLines from "@/app/animations/FloatingLines"
-
+const FloatingLines = dynamic(
+  () => import("@/app/animations/FloatingLines"),
+  { ssr: false }
+)
 import { Store, ExternalLink, ShoppingCart, MapPin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { TikTokIcon } from "@/components/icons/TikTokIcon"
 import { Instagram } from "lucide-react"
+import dynamic from "next/dynamic"
 
 /* ---------------- BUSINESS STATUS ---------------- */
 function BusinessStatus() {

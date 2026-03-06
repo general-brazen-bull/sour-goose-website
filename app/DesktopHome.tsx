@@ -7,7 +7,11 @@ import { Instagram, ExternalLink } from "lucide-react";
 import { TikTokIcon } from "@/components/icons/TikTokIcon";
 import Link from "next/link";
 
-import LiquidEther from "@/app/animations/LiquidEther";
+import dynamic from "next/dynamic"
+const LiquidEther = dynamic(
+  () => import("@/app/animations/LiquidEther"),
+  { ssr: false }
+)
 import "@/app/animations/LiquidEther.css";
 
 import DecryptedText from "@/app/animations/DecryptedText";
@@ -15,7 +19,11 @@ import GoosePeek from "@/app/animations/GoosePeek";
 import SpotlightCard from "@/app/animations/SpotlightCard";
 import FlowingMenu from "@/app/animations/FlowingMenu";
 import FuzzyText from "@/app/animations/FuzzyText";
-import ElectricBorder from '@/app/animations/ElectricBorder'
+import dynamic from "next/dynamic"
+const ElectricBorder = dynamic(
+  () => import("@/app/animations/ElectricBorder"),
+  { ssr: false }
+)
 import type { MenuItemProps } from "@/app/animations/FlowingMenu";
 import StaggeredMenu from "@/app/animations/StaggeredMenu";
 import ScrollReveal from '@/app/animations/ScrollReveal';

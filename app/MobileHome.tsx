@@ -8,7 +8,11 @@ import { Instagram, ExternalLink, ChevronUp } from "lucide-react";
 import { TikTokIcon } from "../components/icons/TikTokIcon";
 import Link from "next/link";
 
-import LiquidEther from "@/app/animations/LiquidEther";
+import dynamic from "next/dynamic"
+const LiquidEther = dynamic(
+  () => import("@/app/animations/LiquidEther"),
+  { ssr: false }
+)
 import "@/app/animations/LiquidEther.css";
 
 import DecryptedText from "@/app/animations/DecryptedText";

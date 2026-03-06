@@ -10,7 +10,11 @@ import ScrollReveal from "@/app/animations/ScrollReveal";
 import Beams from "@/app/animations/Beams";
 import { motion } from "framer-motion";
 import MarqueeSection from "@/app/animations/MarqueeSection";
-import ElectricBorder from "@/app/animations/ElectricBorder";
+import dynamic from "next/dynamic"
+const ElectricBorder = dynamic(
+  () => import("@/app/animations/ElectricBorder"),
+  { ssr: false }
+)
 import GoosePeek from "@/app/animations/GoosePeek";
 
 const navMenuItems = [

@@ -11,7 +11,11 @@ import ScrollReveal from "@/app/animations/ScrollReveal";
 import Beams from "@/app/animations/Beams";
 import { motion } from "framer-motion";
 import MarqueeSection from "@/app/animations/MarqueeSection";
-import ElectricBorder from "@/app/animations/ElectricBorder";
+import dynamic from "next/dynamic"
+const ElectricBorder = dynamic(
+  () => import("@/app/animations/ElectricBorder"),
+  { ssr: false }
+)
 
 const navMenuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },

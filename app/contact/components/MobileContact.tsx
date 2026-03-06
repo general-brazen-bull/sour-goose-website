@@ -4,7 +4,12 @@ import GoosePeek from "@/app/animations/GoosePeek"
 import DecryptedText from "@/app/animations/DecryptedText"
 import SpotlightCard from "@/app/animations/SpotlightCard"
 import StaggeredMenu from "@/app/animations/StaggeredMenu"
-import Aurora from "@/app/animations/Aurora"
+import dynamic from "next/dynamic"
+
+const Aurora = dynamic(
+  () => import("@/app/animations/Aurora"),
+  { ssr: false }
+)
 
 import { Mail, Instagram, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"

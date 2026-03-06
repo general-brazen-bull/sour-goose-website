@@ -13,29 +13,27 @@ export default function AgeGate() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsVerifying(true)
-
+  
     const year = parseInt(birthYear, 10)
     const currentYear = new Date().getFullYear()
     const age = currentYear - year
-
+  
     if (isNaN(year) || birthYear.length !== 4 || age < 0) {
       setError("Please enter a valid 4-digit year.")
-      setIsVerifying(false)
       return
     }
-
+  
     if (age < 19) {
       setError("Sorry, you're too young to enter.")
-      setIsVerifying(false)
       return
     }
-
-    // Save verification cookie (30 days)
-    document.cookie = "age-verified=true; path=/; max-age=2592000; SameSite=Lax"
-
-    // Reload so the server layout sees the cookie
-    window.location.reload()
+  
+    // Save cookie
+    document.cookie =
+      "age-verified=true; path=/; max-age=2592000; SameSite=Lax"
+  
+    // Hard refresh so server layout sees cookie
+    window.location.href = window.location.href
   }
 
   return (
@@ -94,12 +92,12 @@ export default function AgeGate() {
               </div>
             )}
 
-            <Button
-              type="submit"
-              disabled={isVerifying || !birthYear}
-              className="w-full bg-sour-red hover:bg-red-700 text-white font-bebas text-2xl h-16 hover-lightning disabled:opacity-50"
+<Button
+  type="submit"
+  disabled={!birthYear}
+  className="w-full bg-sour-red hover:bg-red-700 text-white font-bebas text-2xl h-16 hover-lightning disabled:opacity-50"
             >
-              {isVerifying ? "VERIFYING..." : "UNLOOSE THE GOOSE"}
+              UNLOOSE THE GOOSE
             </Button>
 
           </form>

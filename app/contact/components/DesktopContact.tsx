@@ -4,7 +4,11 @@ import { useState } from "react"
 import GoosePeek from "@/app/animations/GoosePeek"
 import DecryptedText from "@/app/animations/DecryptedText"
 import SpotlightCard from "@/app/animations/SpotlightCard"
-import LiquidEther from "@/app/animations/LiquidEther"
+import dynamic from "next/dynamic"
+const LiquidEther = dynamic(
+  () => import("@/app/animations/LiquidEther"),
+  { ssr: false }
+)
 import "@/app/animations/LiquidEther.css"
 import StaggeredMenu from "@/app/animations/StaggeredMenu"
 
