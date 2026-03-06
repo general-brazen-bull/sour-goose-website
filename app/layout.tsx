@@ -2,11 +2,17 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Bebas_Neue } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { cookies } from "next/headers"
+import AgeGate from "../components/AgeGate"
+import "./globals.css"
 
-// Load fonts with CSS variables
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+// ----------- FONTS -----------
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+})
+
 const bebas = Bebas_Neue({
   weight: "400",
   subsets: ["latin"],
@@ -46,16 +52,19 @@ export const metadata: Metadata = {
 }
 
 // ----------- ROOT LAYOUT -----------
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const cookieStore = await cookies()
+  const verified = cookieStore.get("age-verified")?.value === "true"
+
   return (
     <html lang="en" className={`${inter.variable} ${bebas.variable}`}>
-      {/* No global font override — lets Bebas work where applied */}
       <body className="bg-black text-white overflow-x-hidden">
-        {children}
+        {!verified ? <AgeGate /> : children}
+
         <Analytics />
         <SpeedInsights />
       </body>

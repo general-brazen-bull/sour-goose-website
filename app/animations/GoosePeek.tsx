@@ -85,7 +85,7 @@ export default function GoosePeek({ active = true }: { active?: boolean }) {
       `}
     >
       <Image
-        src="/Goose Neck.png"
+        src="/goose-neck.png"
         alt="Goose Peek"
         width={120}
         height={320}
