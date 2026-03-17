@@ -25,16 +25,20 @@ const bebas = Bebas_Neue({
 
 // ----------- SITE-WIDE SEO -----------
 export const metadata: Metadata = {
-  title: "Sour Goose — Bold, Vibrant Liqueurs",
+  title: "Sour Goose - Bold, Vibrant Liqueurs",
   description:
-    "Sour Goose is a bold, vibrant line of flavour-packed liqueurs crafted in British Columbia. Try our Raspberry, Salsa Verde, and upcoming limited-edition flavours.",
+    "Sour Goose is a bold, vibrant line of flavour-packed liqueurs crafted in British Columbia. Try our Raspberry, Salsa Verde, Green Apple and and upcoming limited-edition flavours.",
   keywords: [
     "Sour Goose",
     "raspberry liqueur",
     "salsa verde liqueur",
     "liqueur",
+    "green apple liqueur",
+    "curasour blue curacao liqueur",
     "bold liqueurs",
     "craft spirits",
+    "flavoured spirits",
+    "canadian spirits",
     "British Columbia spirits",
     "BC craft distillery",
     "Flash Bang Spirits",
@@ -52,9 +56,9 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 
   openGraph: {
-    title: "Sour Goose — Bold, Vibrant Liqueurs",
+    title: "Sour Goose - Bold, Vibrant Liqueurs",
     description:
-      "A flavour-first liqueur brand crafted in British Columbia. Raspberry, Salsa Verde, and more to come.",
+      "A flavour-first liqueur brand crafted in British Columbia. Raspberry, Salsa Verde, Green Apple and more to come.",
     url: "https://drinksourgoose.com",
     siteName: "Sour Goose",
     type: "website",
@@ -62,7 +66,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Sour Goose — Bold, Vibrant Liqueurs",
+    title: "Sour Goose - Bold, Vibrant Liqueurs",
     description:
       "A bright, bold liqueur line crafted in British Columbia. Raspberry, Salsa Verde, and more.",
   },
